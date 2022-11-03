@@ -1,9 +1,24 @@
-import './styles/App.scss';
+import { Routes, Route } from "react-router-dom";
+import Default from './pages/Default';
+import NoPage from './pages/NoPage';
+import Header from './components/Header/Header';
+import TeamProvider from "./context/TeamProvider/TeamProvider";
 
-const App = (): JSX.Element => (
-	<div className='App'>
-		<h2>Hello</h2>
-	</div>
-);
+import './styles/App.scss'
+
+const App = (): JSX.Element => {
+  return (
+		<TeamProvider>
+			<div className='App'>
+				<Header />
+				<Routes>
+					<Route index element={<Default />} />
+					<Route path="*" element={<NoPage />} />
+				</Routes>
+
+			</div>
+		</TeamProvider>
+  )
+}
 
 export default App;

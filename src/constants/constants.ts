@@ -1,0 +1,1 @@
+export const defaultTournament: string = '0769cf5b-c483-4b4d-a2aa-8a7ab02e5ddd';
