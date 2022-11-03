@@ -3,8 +3,9 @@ export interface ITeam {
       Count: Number;
       Item: TeamData[];
       ScannedCount: Number;
-    };
 
+    };
+    defaultTournament?: string;
     error: boolean;
     dataLoaded: boolean;
     tournamentDataLoaded: boolean;
