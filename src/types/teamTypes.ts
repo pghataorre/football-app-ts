@@ -1,17 +1,10 @@
 export interface ITeam {
-    teams: {
-      Count: Number;
-      Item: TeamData[];
-      ScannedCount: Number;
-
-    };
-    defaultTournament?: string;
-    error: boolean;
-    dataLoaded: boolean;
-    tournamentDataLoaded: boolean;
+  Count: Number;
+  Items: ITeamData[];
+  ScannedCount: Number;
 }
 
-export type TeamData = {
+export type ITeamData = {
   tournamentID: string;
   teamName: string;
   logo: string;
@@ -32,9 +25,8 @@ export type TeamResults = {
   points: number;
 }
 
-
 export interface ITeamProvider {
-  teams: ITeam | object;
-  loadedData: boolean,
-  error: boolean,
+  teams: ITeam;
+  loadedData: boolean;
+  error: boolean;
 }

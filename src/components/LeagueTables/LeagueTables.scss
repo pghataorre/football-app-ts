@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.league-table {
+  width: 100%;
+  font-size: $font-l;
+  margin: $spacing-xxl 0 $spacing-l;
+  
+  tr td {
+    border-bottom: 1px solid $custom-light-grey;
+    padding: 20px 0 20px;
+  }
+
+  tr td.team-shield {
+    padding-right: $spacing-m;
+    width: 80px;
+  }
+
+  td {
+    text-align: center;
+    padding: 20px 0 20px;
+  }
+
+  td.show-desktop,
+  th.show-desktop {
+    display: none;
+  }
+
+  td.points {
+    font-weight: bold;
+  }
+
+  @media only screen and (min-width: $bp-mobile-max) {
+    td.show-desktop,
+    td.points,
+    th.points,
+    th.show-desktop {
+      display: table-cell;
+      width: 8%;
+      min-width: 40px;
+    }
+  }
+}
+
