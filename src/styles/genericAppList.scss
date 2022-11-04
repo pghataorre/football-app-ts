@@ -1,0 +1,15 @@
+.generic-app-list {
+  li {
+  font-size: $font-l;
+  margin-bottom: $spacing-m;
+  align-items: center;
+  padding: $spacing-sm;
+  background-color: $custom-light-grey;
+  border-radius: $spacing-s;
+  text-align: left;
+
+    &.currentManager {
+      background-color: lightgreen;
+    }
+  }
+}

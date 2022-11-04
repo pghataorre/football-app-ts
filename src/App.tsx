@@ -8,8 +8,8 @@ import FixturesProvider from './context/FixturesProvider/FixturesProvider';
 import { defaultTournament } from './constants/constants';
 import Teams from './pages/Teams';
 import AddPoints from './pages/AddPoints';
+import Managers from './pages/Managers';
 import './styles/App.scss'
-
 
 const App = (): JSX.Element => {
   return (
@@ -22,7 +22,8 @@ const App = (): JSX.Element => {
 							<Route index element={<Default />} />
 							<Route path='*' element={<NoPage />} />
 							<Route path='/teams' element={<Teams />} />	
-							<Route path='/addpoints' element={<AddPoints />} />				
+							<Route path='/addpoints' element={<AddPoints />} />
+							<Route path='/managers' element={<Managers />} />			
 						</Routes>
 					</div>
 				</FixturesProvider>
