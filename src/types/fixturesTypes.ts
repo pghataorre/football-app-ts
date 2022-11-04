@@ -1,7 +1,7 @@
 export interface IFixtures {
-  Count: number;
+  Count?: number;
   ScannedCount: number;
-  Items: IFixtures[];
+  Items?: IFixtures[];
 }
 
 export interface IFixtures {
