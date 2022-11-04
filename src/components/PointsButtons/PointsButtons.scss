@@ -1,0 +1,56 @@
+@import '../../styles/variables.scss';
+
+.score-buttons-container {
+  margin-top: $spacing-m;
+
+  .points-button {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid  darkgray;
+    font-size: $font-l;
+    margin-right: $spacing-m;
+    opacity: 1;
+    padding: $spacing-s;
+    text-align: center;
+    color: $custom-white;
+    font-weight: bold;
+    opacity: .7;
+    margin: 0 $spacing-xs 0px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @media only screen and (min-width: $bp-mobile-max) {
+      margin: 0 $spacing-xs 0px 0;
+    }
+
+    .disabled,
+    .disabled:hover {
+      background-color: $custom-light-grey;
+      border: 2px solid  $custom-black;
+      opacity: 1;
+      color: $custom-black;
+    }
+  }
+
+  .win {
+    background-color: $success;
+  }
+
+  .draw {
+    background-color: $warning;
+  }
+
+  .loss {
+    background-color: $error;
+  }
+}
+
+
+
+

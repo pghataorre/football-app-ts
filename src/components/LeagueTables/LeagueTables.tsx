@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TeamsContext } from '../../context/TeamProvider/teamsContext';
 import { ITeam, ITeamData } from '../../types/teamTypes';
-// import PointsButtons from '../PointsButtons/PointsButtons';
+import PointsButtons from '../PointsButtons/PointsButtons';
 import './LeagueTables.scss';
 
 const LeagueTables = ({showButtons} :{showButtons: boolean}): JSX.Element => {
@@ -32,10 +32,10 @@ const LeagueTableGrid = ({teams, showButtons, loadedData}: {teams: ITeam, showBu
         </td>
         <td className="team-name">
           <div>{teamItem.teamName}</div> 
-          {/* { showButtons && (<PointsButtons 
+          { showButtons && (<PointsButtons 
             showButtons={showButtons} 
-            teamId={team.ID}
-          />)} */}
+            teamId={teamItem.ID}
+          />)}
         </td>
         <td className="show-desktop">{teamItem.results[0].won}</td>
         <td className="show-desktop">{teamItem.results[0].draw}</td>

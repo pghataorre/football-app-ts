@@ -7,7 +7,9 @@ import TournamentsProvider from './context/TournamentProvider/TournamentsProvide
 import FixturesProvider from './context/FixturesProvider/FixturesProvider';
 import { defaultTournament } from './constants/constants';
 import Teams from './pages/Teams';
+import AddPoints from './pages/AddPoints';
 import './styles/App.scss'
+
 
 const App = (): JSX.Element => {
   return (
@@ -19,7 +21,8 @@ const App = (): JSX.Element => {
 						<Routes>
 							<Route index element={<Default />} />
 							<Route path='*' element={<NoPage />} />
-							<Route path="/teams" element={<Teams />} />						
+							<Route path='/teams' element={<Teams />} />	
+							<Route path='/addpoints' element={<AddPoints />} />				
 						</Routes>
 					</div>
 				</FixturesProvider>
@@ -27,5 +30,4 @@ const App = (): JSX.Element => {
 		</TeamProvider>
   )
 }
-
 export default App;
