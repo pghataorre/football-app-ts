@@ -10,3 +10,5 @@ export interface IManager {
   ID: string;
   teamId: string;
 }
+
+export type TAddManagerBody = Omit<IManager, 'ID'>;
