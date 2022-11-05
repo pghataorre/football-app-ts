@@ -25,7 +25,7 @@ const App = (): JSX.Element => {
 							<Route path='/teams' element={<Teams />} />	
 							<Route path='/addpoints' element={<AddPoints />} />
 							<Route path='/managers' element={<Managers />} />		
-          		<Route path="/addmanager" element={<AddManager />} />
+							<Route path="/addmanager" element={<AddManager />} />
 						</Routes>
 					</div>
 				</FixturesProvider>
