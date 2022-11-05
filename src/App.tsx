@@ -9,6 +9,7 @@ import { defaultTournament } from './constants/constants';
 import Teams from './pages/Teams';
 import AddPoints from './pages/AddPoints';
 import Managers from './pages/Managers';
+import AddManager from './pages/AddManager';
 import './styles/App.scss'
 
 const App = (): JSX.Element => {
@@ -23,7 +24,8 @@ const App = (): JSX.Element => {
 							<Route path='*' element={<NoPage />} />
 							<Route path='/teams' element={<Teams />} />	
 							<Route path='/addpoints' element={<AddPoints />} />
-							<Route path='/managers' element={<Managers />} />			
+							<Route path='/managers' element={<Managers />} />		
+          		<Route path="/addmanager" element={<AddManager />} />
 						</Routes>
 					</div>
 				</FixturesProvider>
