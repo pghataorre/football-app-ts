@@ -11,6 +11,7 @@ import AddPoints from './pages/AddPoints';
 import Managers from './pages/Managers';
 import AddManager from './pages/AddManager';
 import './styles/App.scss'
+import AddTournament from './pages/AddTournament';
 
 const App = (): JSX.Element => {
   return (
@@ -26,6 +27,7 @@ const App = (): JSX.Element => {
 							<Route path='/addpoints' element={<AddPoints />} />
 							<Route path='/managers' element={<Managers />} />		
 							<Route path="/addmanager" element={<AddManager />} />
+							<Route path="/addtournament" element={<AddTournament />} />
 						</Routes>
 					</div>
 				</FixturesProvider>
