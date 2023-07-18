@@ -1,0 +1,89 @@
+  .default-page {
+    height: 100%;
+    background-color: $custom-black;
+    position: relative;
+    color: $custom-white;
+
+    .back-image-container {
+      z-index: 2;
+      background-color: $custom-black;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: $custom-white;
+      filter: grayscale(100%);
+      height: 40%;
+    }
+
+    .default-content {
+      box-sizing: border-box;
+      padding: $spacing-xxl $spacing-m;
+      color: $custom-white;
+      background-color: $custom-black;
+      text-align: left;
+      height: 50%;
+      position: absolute;
+      z-index: 3;
+      bottom: 10%;
+
+      h1 {
+        background-color: $custom-black;
+        color: $custom-white;
+        margin: 0;
+        padding: 0 0 $spacing-m 0;
+        font-size: $font-l;
+        text-align: left;
+      }
+
+      p {
+        padding: 0 $spacing-sm $spacing-sm 0;
+      }
+
+      .scroll-content {
+        height: 100%;
+        overflow: scroll;
+        overflow-y: visible;
+
+        ul {
+          list-style-type: square;
+          padding-left: $spacing-m;
+        }
+      }
+    }
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+  .default-page {
+    .back-image-container {
+      height: 100%;
+    }
+
+    .default-content {
+      position: absolute;
+      z-index: 3;
+      top: 10%;
+      right: $spacing-xxxl;
+      width: 600px;
+      text-align: left;
+      margin: $spacing-m 0 $spacing-m $spacing-m;
+      opacity: 0.7;
+      height: 60%;
+
+      h1 {
+        padding: 0 0 $spacing-m 0;
+      }
+
+      .scroll-content {
+        height: 100%;
+        overflow: scroll;
+        overflow-y: visible;
+
+        ul {
+          list-style-type: square;
+          padding-left: $spacing-m;
+        }
+      }
+
+    }
+  }
+}
