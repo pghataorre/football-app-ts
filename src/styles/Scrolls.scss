@@ -1,0 +1,13 @@
+/* width */
+::-webkit-scrollbar {
+  width: $spacing-sm;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $custom-grey;
+
+  &:hover {
+    background: $custom-white; 
+  }
+}

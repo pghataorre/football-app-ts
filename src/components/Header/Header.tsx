@@ -1,5 +1,8 @@
+
 import { Link } from 'react-router-dom';
 import './Header.scss';
+import linkToSection from './HeaderHelpers';
+
 
 const Header = () => {
   return (
@@ -9,7 +12,7 @@ const Header = () => {
           <li>
             <Link to="/">Home</Link>       
           </li>
-          <li>
+          {/* <li>
             <Link to="/teams">Teams</Link>       
           </li>
           <li>
@@ -17,6 +20,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/fixtures">Fixtures</Link>       
+          </li> */}
+          <li onClick={ (event) => linkToSection(event, 'mixes-page') }>
+            <a href="#mixes-page">Mixes</a>       
           </li>
         </ul>
       </nav>

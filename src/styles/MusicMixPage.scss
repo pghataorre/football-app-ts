@@ -1,0 +1,104 @@
+.music-page {
+  border-top: 2px solid $custom-white; 
+  padding: 20px;
+  text-align: center;
+  background: $custom-black;
+  color: $custom-white;
+
+  .mix-content-container {
+    margin: $spacing-m;
+
+    .mix-list {
+      margin: $spacing-xxl 0 0 0; 
+      text-align: left;
+
+
+      li {
+        text-align: left;
+        padding: 0 0 $spacing-l 0;
+        margin: 0 0 $spacing-l 0;
+        border-bottom: 1px solid $custom-white;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        h2 {
+          text-align: left;
+          margin: 0 0 $spacing-l 0;
+        }
+
+        img {
+          width: 100%;
+          filter: grayscale(0);
+          transition: $transition-timing;
+          padding: 0;
+          margin: 0;
+          border: 2px solid $custom-white;
+        }
+
+        .mix-item-image {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 0 $spacing-l 0;
+
+          .play-button {
+            position: absolute;
+            background: transparent;
+            border: 8px solid $custom-white;
+            border-radius: 50%;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.2;
+            transition: $transition-timing;
+  
+            &:hover {
+              opacity: 0.9;
+              background: $custom-black;
+            }
+          }
+        }
+
+        &:hover {
+          img {
+            filter: grayscale(100%);
+          }
+        }
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $bp-mobile-max) {
+    .mix-content-container {
+      margin: $spacing-m auto 0;
+      max-width: 80%;
+
+    .mix-list {
+      li {
+        flex-direction: row;
+        align-items: center;
+
+        .mix-item-image {
+          margin: 0 $spacing-m 0 0;
+          
+          .play-button {
+            border: 5px solid $custom-white;
+          }
+  
+          img {
+            width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
