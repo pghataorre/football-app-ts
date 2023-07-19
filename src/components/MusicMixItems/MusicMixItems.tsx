@@ -9,7 +9,7 @@ const MusicListItem = ({mixItem, itemKey}: {mixItem: any, itemKey:string}): JSX.
   } 
 
 	return (
-		<li key={itemKey}>
+		<li key={`${itemKey}-list-item`}>
 			<div className='mix-item-image'>
 				<img src={mixItem.fields.mixtapeMediaItems[0].fields.file.url} alt={mixItem.fields.mixTapeTitle} />
           <button type="button" className='play-button' onClick={ (event: MouseEvent) => { playMix() } }>
