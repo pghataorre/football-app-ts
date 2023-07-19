@@ -5,6 +5,10 @@ import getFixtures from '../contextApi/getFixtures';
 const FixturesProvider = ({children, tournamentId}: {children: JSX.Element, tournamentId: string}): JSX.Element  => {
   const [fixtures, setFixtures] = useState({});
   const [fixturesLoading, setFixturesLoading] = useState(false);
+
+  if (!tournamentId) {
+    tournamentId = '23';
+  }
   
   useEffect(() => {
     (async () => {

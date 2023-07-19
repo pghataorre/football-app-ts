@@ -11,7 +11,7 @@ const getEntry = async () => {
   } = config; 
 
   const contentFulClient = createClient({
-    space: process.env.REACT_APP_SPACE_TOKEN as string,
+    space: spaceToken,
     accessToken,
     host: hostUrl
   })
