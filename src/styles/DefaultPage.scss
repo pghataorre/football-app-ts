@@ -23,7 +23,7 @@
       box-sizing: border-box;
       padding: $spacing-xxl $spacing-m;
       color: $custom-white;
-      background-color: $custom-black;
+      background-color: rgba(0, 0, 0, 0.6);
       text-align: left;
       height: 50%;
       position: absolute;
@@ -31,7 +31,6 @@
       bottom: 10%;
 
       h1 {
-        background-color: $custom-black;
         color: $custom-white;
         margin: 0;
         padding: 0 0 $spacing-m 0;
@@ -82,7 +81,6 @@
       width: 400px;
       text-align: left;
       margin: $spacing-m 0 $spacing-m $spacing-m;
-      opacity: 0.7;
       height: 60%;
 
       h1 {
