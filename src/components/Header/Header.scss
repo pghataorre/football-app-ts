@@ -1,16 +1,14 @@
 @import '../../styles/variables.scss';
 
 .header-nav {
-  padding: $spacing-m;
   position: fixed;
   z-index: 4;
-  top: 2px;
-  left: 3px;
-
-
+  top: $spacing-m;
+  left: $spacing-m;
 
   ul.nav-icon {
     padding: 0;
+    margin: 0;
 
     svg {
       fill: $custom-white;
@@ -24,31 +22,42 @@
     }
   }
 
-
-
-
-
   ul.nav-icon li:hover ul.nav-links {
     display: block;
   }
+
+
+  .nav-links {
+    display: none;
+    padding: 0px;
+    margin: $spacing-s 0;
+  }
+  
+  .nav-links li {
+    padding: 0px 0px $spacing-m 0px;
+    font-size: 1.2em;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: $custom-white;
+  }
+  
+  .nav-links li a:hover {
+    color: $link-color-selected;
+  }
+
+
 }
 
-.nav-links {
-  display: none;
-  padding: 0px;
-  margin: $spacing-s 0;
+
+@media only screen and (min-width: $bp-mobile-max) {
+
+  .nav-links {
+    display: none;
+    padding: 0px;
+    margin: $spacing-xl 0;
+  }
+  
 }
 
-.nav-links li {
-  padding: 0px 0px $spacing-m 0px;
-  font-size: 1.2em;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: $custom-white;
-}
-
-.nav-links li a:hover {
-  color: $link-color-selected;
-}
