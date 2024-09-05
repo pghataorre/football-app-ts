@@ -1,17 +1,47 @@
 @import '../../styles/variables.scss';
 
 .header-nav {
-  background: $custom-black;
-  padding: $spacing-m 0 $spacing-m 0;
+  padding: $spacing-m;
+  position: fixed;
+  z-index: 4;
+  top: 2px;
+  left: 3px;
+
+
+
+  ul.nav-icon {
+    padding: 0;
+
+    svg {
+      fill: $custom-white;
+    }
+
+    &:hover {
+
+      svg {
+        fill: $link-color-selected;
+      }
+    }
+  }
+
+
+
+
+
+  ul.nav-icon li:hover ul.nav-links {
+    display: block;
+  }
 }
 
 .nav-links {
-  display: flex;
-  justify-content: center;
+  display: none;
+  padding: 0px;
+  margin: $spacing-s 0;
 }
 
 .nav-links li {
-  padding: 0px $spacing-s;
+  padding: 0px 0px $spacing-m 0px;
+  font-size: 1.2em;
 }
 
 .nav-links li a {

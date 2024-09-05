@@ -4,6 +4,10 @@
     position: relative;
     color: $custom-white;
 
+    h2 {
+      display: none;
+    }
+
     .back-image-container {
       z-index: 2;
       background-color: $custom-black;
@@ -58,11 +62,23 @@
       height: 100%;
     }
 
+    h2 {
+      display: block;
+      position: absolute;
+      bottom: $spacing-m;
+      left: $spacing-l;
+      color: $custom-white;
+      opacity: 0.8;
+      font-size: 6em;
+      padding: 0px;
+      margin: 0px;
+    }
+
     .default-content {
       position: absolute;
       z-index: 3;
-      top: $spacing-xl;
-      right: $spacing-xl;
+      top: $spacing-m;
+      right: $spacing-m;
       width: 400px;
       text-align: left;
       margin: $spacing-m 0 $spacing-m $spacing-m;

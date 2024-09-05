@@ -13,11 +13,12 @@ const Default = (): JSX.Element => {
 
 	return (
 		<>
-			<div className='default-page'>
+			<div className='default-page' id="default-page">
 				{ content && (
 					<>
 						<RandomImage contentEntry={content} showBackImage />
 						<BoxedContent contentEntry={content}/>
+						<h2>{content.pageTitle}</h2>
 					</>
 				)}
 			</div>
