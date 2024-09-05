@@ -1,5 +1,4 @@
 
-import { Link } from 'react-router-dom';
 import './Header.scss';
 import linkToSection from './HeaderHelpers';
 import NavIcon from '../Icons/NavIcon';
