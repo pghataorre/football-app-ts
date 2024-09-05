@@ -1,8 +1,6 @@
-
 import './Header.scss';
 import linkToSection from './HeaderHelpers';
 import NavIcon from '../Icons/NavIcon';
-
 
 const Header = () => {
   return (
