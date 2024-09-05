@@ -61,9 +61,9 @@
     .default-content {
       position: absolute;
       z-index: 3;
-      top: 10%;
-      right: $spacing-xxxl;
-      width: 600px;
+      top: $spacing-xl;
+      right: $spacing-xl;
+      width: 400px;
       text-align: left;
       margin: $spacing-m 0 $spacing-m $spacing-m;
       opacity: 0.7;
