@@ -47,7 +47,9 @@ export interface IMixPage {
 export interface IMixEntries {
   fields: IMusicMixEntries[];
   meta: {};
-  sys: {};
+  sys: {
+    id: string;
+  }
 }
 
 export interface IMusicMixEntries {
@@ -57,6 +59,7 @@ export interface IMusicMixEntries {
     mixtapeDetails: {
       content: IMixDetailedContent[]
     };
+    mixId: string;
     mixtapeMediaItems: [];
   }
   meta: {};

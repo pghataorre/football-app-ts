@@ -1,10 +1,12 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ContentfulContext } from '../../context/ContentfulProvider/contentfulContext';
 import MusicListItem from '../MusicMixItems/MusicMixItems';
 
 
 const MusicMixList = (): JSX.Element => {
+
+	const [showPlayerIndex, setShowPlayerIndex] = useState<number>(-1);
 	const {musicContent, hasError} = useContext(ContentfulContext);
 
 
@@ -23,9 +25,15 @@ const MusicMixList = (): JSX.Element => {
 			<p dangerouslySetInnerHTML={{__html: pageDescription ? documentToHtmlString(pageDescription) : '<p></p>'}}></p>
 			<ul className='mix-list'>
 				{
-					mixTapeCollection.map((item) => {
-						return (<MusicListItem mixItem={item} itemKey={crypto.randomUUID()}/>) 
-					})
+					mixTapeCollection.map((item, index) => (
+						<MusicListItem 
+							key={item.sys.id}
+							mixItem={item} 
+							itemIndex={index} 
+							setShowPlayerIndex={setShowPlayerIndex} 
+							showPlayerIndex={showPlayerIndex}
+						/>
+					))
 				}
 			</ul>
 		</div>
