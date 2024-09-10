@@ -3,11 +3,19 @@
 @import './DefaultPage.scss';
 @import './MusicMixPage.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+
 html,
 body,
 #root,
 .App {
   height: 100%;
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+
 }
 
 /* width */
