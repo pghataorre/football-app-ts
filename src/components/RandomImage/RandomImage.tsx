@@ -13,28 +13,24 @@ const RandomImage = ({
 	showBackImage: boolean
 	}
 ): JSX.Element => {
-	const [backgroundImageStyle, setBackgroundImageStyle] = useState<{backgroundImage: string | undefined}>();
-	const [imageIndex, setImageIndex] = useState<number>(0);
-
 	const { 
 		backgroundImagesCollection,
 	} = contentEntry;
 
+
+	const [backgroundImageStyle, setBackgroundImageStyle] = useState<{backgroundImage: string | undefined}>({ backgroundImage: `url(${backgroundImagesCollection[27].fields.file.url})`});
+	const [imageIndex, setImageIndex] = useState<number>();
+
+
 	useEffect(() => {
-
-		const defaultImageIndex = generateRandomImageIndex(backgroundImagesCollection.length)
-		setBackgroundImageStyle({ backgroundImage: `url(${backgroundImagesCollection[defaultImageIndex].fields.file.url})`})
-
-
 		const imageChanger = setInterval(() => {
 			setImageIndex(generateRandomImageIndex(backgroundImagesCollection.length));
 			setBackgroundImageStyle({ backgroundImage: `url(${imagePath})`});
-		}, 10000);	
+		}, imageIndex === undefined ? 200 : 10000);	
 
-		const imagePath: string = backgroundImagesCollection[imageIndex].fields.file.url;
-
+		const imagePath: string = backgroundImagesCollection[imageIndex || generateRandomImageIndex(backgroundImagesCollection.length)].fields.file.url;
 		return () => clearInterval(imageChanger);
-	},[imageIndex, backgroundImagesCollection])
+	},[imageIndex, backgroundImagesCollection, backgroundImageStyle])
 
 	return (
 		<>
