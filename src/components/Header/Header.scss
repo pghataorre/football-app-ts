@@ -5,37 +5,48 @@
   z-index: 4;
   top: $spacing-m;
   left: $spacing-m;
+  text-align: left;
+  margin: auto;
 
   ul.nav-icon {
     padding: 0;
     margin: 0;
 
     svg {
-      fill: $custom-white;
+      fill: $link-color-selected;
     }
 
     &:hover {
 
       svg {
-        fill: $link-color-selected;
+        fill: $custom-white;
       }
     }
   }
 
   ul.nav-icon li:hover ul.nav-links {
+    list-style: square;
+    color: $link-color-selected;
     display: block;
+    transition: display 1.2s ease-in-out;
   }
 
-
-  .nav-links {
+  ul.nav-links {
+    position: absolute;
+    top: 48px;
+    left: 0px;
+    z-index: 30;
     display: none;
     padding: 0px;
     margin: $spacing-s 0;
+
   }
   
-  .nav-links li {
+  ul.nav-links li {
+    margin-left: 20px;
     padding: 0px 0px $spacing-m 0px;
     font-size: 1.2em;
+
   }
   
   .nav-links li a {
