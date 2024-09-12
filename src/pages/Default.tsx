@@ -1,4 +1,4 @@
-import RandomImage from '../components/PointsButtons/RandomImage/RandomImage';
+import RandomImage from '../components/RandomImage/RandomImage';
 import BoxedContent from '../components/BoxedContent/BoxedContent';
 import { useContext } from 'react';
 import { ContentfulContext } from '../context/ContentfulProvider/contentfulContext';
