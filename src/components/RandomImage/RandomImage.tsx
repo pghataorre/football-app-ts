@@ -21,11 +21,14 @@ const RandomImage = ({
 			backgroundImagesCollection,
 		} = contentEntry;
 
+		const defaultImageIndex = generateRandomImageIndex(backgroundImagesCollection.length)
+		setBackgroundImageStyle({ backgroundImage: `url(${backgroundImagesCollection[defaultImageIndex].fields.file.url})`})
+
 
 		const imageChanger = setInterval(() => {
 			setImageIndex(generateRandomImageIndex(backgroundImagesCollection.length));
 			setBackgroundImageStyle({ backgroundImage: `url(${imagePath})`});
-		}, 5000);	
+		}, 10000);	
 
 		const imagePath: string = backgroundImagesCollection[imageIndex].fields.file.url;
 
