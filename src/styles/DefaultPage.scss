@@ -12,12 +12,12 @@
       z-index: 2;
       background-color: $custom-black;
       background-size: cover;
-      background-position: top center;
+      background-position: center center;
       background-repeat: no-repeat;
       color: $custom-white;
       filter: grayscale(100%);
-      height: 40%;
-      transition: background-image 2s ease-out;
+      height: 50vh;
+      transition: background-image 7s ease-in-out;
     }
 
     .default-content {
@@ -26,10 +26,10 @@
       color: $custom-white;
       background-color: rgba(0, 0, 0, 0.6);
       text-align: left;
-      height: 50%;
+      height: 50vh;
       position: absolute;
       z-index: 3;
-      bottom: 10%;
+      bottom: 2px;
 
       h1 {
         color: $custom-white;
@@ -59,7 +59,7 @@
 @media only screen and (min-width: $bp-mobile-max) {
   .default-page {
     .back-image-container {
-      background-position: center center;
+      background-position: top center;
       height: 100vh;
     }
 

@@ -18,7 +18,7 @@ const RandomImage = ({
 	} = contentEntry;
 
 
-	const [backgroundImageStyle, setBackgroundImageStyle] = useState<{backgroundImage: string | undefined}>({ backgroundImage: `url(${backgroundImagesCollection[27].fields.file.url})`});
+	const [backgroundImageStyle, setBackgroundImageStyle] = useState<{backgroundImage: string | undefined}>({ backgroundImage: `url(${backgroundImagesCollection[0].fields.file.url})`});
 	const [imageIndex, setImageIndex] = useState<number>();
 
 
