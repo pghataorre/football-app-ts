@@ -16,10 +16,11 @@ const RandomImage = ({
 	const [backgroundImageStyle, setBackgroundImageStyle] = useState<{backgroundImage: string | undefined}>();
 	const [imageIndex, setImageIndex] = useState<number>(0);
 
+	const { 
+		backgroundImagesCollection,
+	} = contentEntry;
+
 	useEffect(() => {
-		const { 
-			backgroundImagesCollection,
-		} = contentEntry;
 
 		const defaultImageIndex = generateRandomImageIndex(backgroundImagesCollection.length)
 		setBackgroundImageStyle({ backgroundImage: `url(${backgroundImagesCollection[defaultImageIndex].fields.file.url})`})
@@ -33,9 +34,7 @@ const RandomImage = ({
 		const imagePath: string = backgroundImagesCollection[imageIndex].fields.file.url;
 
 		return () => clearInterval(imageChanger);
-	},[imageIndex])
-
-	if (!contentEntry) return (<></>);
+	},[imageIndex, backgroundImagesCollection])
 
 	return (
 		<>
