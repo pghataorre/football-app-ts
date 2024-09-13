@@ -1,6 +1,6 @@
 import { createClient } from 'contentful';
 import config from '../../config/config.mjs';
-import { ICleanedMixContent, IContentEntry } from '../../types/contentfulTypes';
+import { ICleanedMixContent, IContentEntry, ISocialMediaCollection } from '../../types/contentfulTypes';
 
 const getEntry = async () => {
   const { contentful: {
@@ -19,7 +19,9 @@ const getEntry = async () => {
   try {
     const defaultPage = await contentFulClient.getEntry('wbp1AL9SvovWWYCq6c92r');
     const musicPageContent = await contentFulClient.getEntries({ content_type:'mixesCollection'});      
-    return {musicPageContent, defaultPage};
+    const socialMediaEntries = await contentFulClient.getEntries({content_type: 'socialMediaList'});
+
+    return {musicPageContent, defaultPage, socialMediaEntries};
   } catch (errors){
     console.log('error occurred - contentful call --- ', errors);
   }
@@ -41,4 +43,18 @@ const getEntry = async () => {
     }
   }
 
-export {getEntry, cleanContentEntry, cleanMusicEntries};
+  const cleanSocialMediaEntries = (socialMediaEntries: any): ISocialMediaCollection => {
+      return { 
+        socialMediaCollection: socialMediaEntries.items[0].fields.socialMediaLink.map((socialMediaItem: any) => {
+          return {
+            socialMediaName: socialMediaItem.fields.socialMediaName,
+            socialMediaLink: socialMediaItem.fields.socialMediaLink,
+            socialMediaIcon: socialMediaItem.fields.socialMediaImage.fields.file.url
+          }
+      }),
+    }
+  }
+
+
+
+export {getEntry, cleanContentEntry, cleanMusicEntries, cleanSocialMediaEntries};

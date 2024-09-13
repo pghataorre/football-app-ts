@@ -7,8 +7,6 @@ type TMusicListItem = {
 	setShowPlayerIndex: (playIndex: number) => void;
 	showPlayerIndex: number;
 }
-
-
 const MusicListItem = ({mixItem, itemIndex, setShowPlayerIndex, showPlayerIndex}: TMusicListItem): JSX.Element => {
 
 	const playMix = (playIndex: number) => {

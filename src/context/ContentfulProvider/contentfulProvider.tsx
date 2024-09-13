@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { ContentfulContext } from './contentfulContext';
-import { getEntry, cleanContentEntry, cleanMusicEntries } from '../customContextHooks/useContentful';
-import { IContentEntry, ICleanedMixContent } from '../../types/contentfulTypes';
+import { getEntry, cleanContentEntry, cleanMusicEntries, cleanSocialMediaEntries } from '../customContextHooks/useContentful';
+import { IContentEntry, ICleanedMixContent, ISocialMediaCollection  } from '../../types/contentfulTypes';
 
 const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  => {
 
   const [content, setContent] =  useState<IContentEntry>();
   const [musicContent, setMusicContent] = useState<ICleanedMixContent>()
+  const [socialMedia, setSocialMedia] = useState<ISocialMediaCollection>()
   const [hasError, setHasError] = useState<boolean>(false);
   
   useEffect(() => {
@@ -15,9 +16,11 @@ const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  =
         const originalContent = await getEntry();
         const cleanedEntry = cleanContentEntry(originalContent!.defaultPage);
         const cleanedMusicEntries = cleanMusicEntries(originalContent!.musicPageContent);
-
+        const cleanedSocialMediaEntries = cleanSocialMediaEntries(originalContent?.socialMediaEntries);
+        
         setContent(cleanedEntry);
         setMusicContent(cleanedMusicEntries);
+        setSocialMedia(cleanedSocialMediaEntries);
         
       } catch(error) {
         setHasError(true);
@@ -28,7 +31,7 @@ const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  =
   }, []);
 
   return (
-    <ContentfulContext.Provider value={{content, hasError, musicContent}}>
+    <ContentfulContext.Provider value={{content, hasError, musicContent, socialMedia}}>
       {children}
     </ContentfulContext.Provider>
   );

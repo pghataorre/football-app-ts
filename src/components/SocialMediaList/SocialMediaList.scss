@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.social-media-links-container {
+  position: fixed;
+  right: $spacing-m;
+  z-index: 30;
+
+  ul {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 0 0 0 $spacing-m;
+      filter: grayscale(100%);
+
+      img {
+        display: inline-block;
+        width: $spacing-l;
+        height: $spacing-l; 
+      }
+
+      &:hover {
+       filter: grayscale(0%);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+  .social-media-links-container {
+    position: fixed;
+    bottom: $spacing-l;
+    right: $spacing-l;
+    top: none;
+
+    ul li img {
+      width: $spacing-xl;
+      height: $spacing-xl; 
+    }
+  }
+}

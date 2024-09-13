@@ -4,6 +4,17 @@ export interface IContext {
   musicContent?: ICleanedMixContent | undefined;
   content?: IContentEntry | undefined;
   hasError: boolean;
+  socialMedia: ISocialMediaCollection | undefined;
+}
+
+export interface ISocialMediaCollection {
+  socialMediaCollection: ISocialMedia[];
+}
+
+export interface ISocialMedia {
+  socialMediaName: string;
+  socialMediaLink: string;
+  socialMediaIcon: string;
 }
 
 export  interface IContentEntry {
