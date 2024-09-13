@@ -2,7 +2,7 @@
 
 .social-media-links-container {
   position: absolute;
-  top: $spacing-m;
+  top: $spacing-xs;
   right: $spacing-m;
   z-index: 30;
 
@@ -16,8 +16,8 @@
 
       img {
         display: inline-block;
-        width: $spacing-l;
-        height: $spacing-l; 
+        width: $spacing-ml;
+        height: $spacing-ml; 
       }
 
       &:hover {

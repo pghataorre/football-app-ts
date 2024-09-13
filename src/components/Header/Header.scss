@@ -3,7 +3,7 @@
 .header-nav {
   position: fixed;
   z-index: 4;
-  top: $spacing-m;
+  top: $spacing-sm;
   left: $spacing-m;
   text-align: left;
   margin: auto;
@@ -13,6 +13,8 @@
     margin: 0;
 
     svg {
+      width: $spacing-l;
+      height: $spacing-l;
       fill: $link-color-selected;
     }
 
@@ -33,7 +35,7 @@
 
   ul.nav-links {
     position: absolute;
-    top: 48px;
+    top: 44px;
     left: 0px;
     z-index: 30;
     display: none;
@@ -57,18 +59,27 @@
   .nav-links li a:hover {
     color: $link-color-selected;
   }
-
-
 }
 
 
 @media only screen and (min-width: $bp-mobile-max) {
+  .header-nav {
+    ul.nav-icon {
+      padding: 0;
+      margin: 0;
 
-  .nav-links {
-    display: none;
-    padding: 0px;
-    margin: $spacing-xl 0;
+      svg {
+        width: $spacing-xl;
+        height: $spacing-xl;
+        fill: $link-color-selected;
+      }
+    }
+
+    .nav-links {
+      display: none;
+      padding: 0px;
+      margin: $spacing-xl 0;
+    }
   }
-  
 }
 
