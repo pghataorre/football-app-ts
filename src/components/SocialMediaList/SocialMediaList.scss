@@ -2,6 +2,7 @@
 
 .social-media-links-container {
   position: fixed;
+  top: $spacing-m;
   right: $spacing-m;
   z-index: 30;
 
@@ -31,7 +32,7 @@
     position: fixed;
     bottom: $spacing-l;
     right: $spacing-l;
-    top: none;
+    top: unset;
 
     ul li img {
       width: $spacing-xl;
