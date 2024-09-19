@@ -5,7 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 html,
 body,
 #root,
@@ -15,7 +14,18 @@ body,
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
+}
 
+input, 
+textarea, 
+button {
+  font-family: "Exo", sans-serif;
+  box-sizing: border-box;
+  padding:$spacing-m; 
+  width: 100%;
+  font-size: large;
+  border: 2px solid $custom-black;
+  border-radius: 0;
 }
 
 /* width */
@@ -60,6 +70,16 @@ body,
   .error {
     background-color: $error;
   }
+
+  .email-error {
+    margin-top: $spacing-s;
+    color: $link-color-selected;
+  }
+
+  .email-error-field {
+    border: 2px solid $link-color-selected;
+  }
+
 }
 
 @media only screen and (min-width: $bp-mobile-max) {
@@ -73,3 +93,4 @@ body,
 @import './FormComponents.scss';
 @import './Buttons.scss';
 @import './genericAppList.scss';
+@import './getInTouchPage.scss';

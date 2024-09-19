@@ -18,6 +18,9 @@ const Header = () => {
               <li onClick={ (event) => linkToSection(event, 'mixes-page') }>
                 <a href="#mixes-page">Mixes</a>       
               </li>
+              <li onClick={ (event) => linkToSection(event, 'contact-page') }>
+                <a href="#mixes-page">Get in touch</a>       
+              </li>
             </ul>
           </li>
         </ul>
