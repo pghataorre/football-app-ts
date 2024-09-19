@@ -1,25 +1,27 @@
-import { useForm, ValidationRule } from "react-hook-form";
-import sendEmail from "../api/sendEmail";
-import { useState } from "react";
+// import { useForm, ValidationRule } from "react-hook-form";
+// import sendEmail from "../api/sendEmail";
+// import { useState } from "react";
+
+// type Inputs = {
+//     name: string;
+//     email: string;
+//     message: string;
+// }
 
 const GetInTouch = (): JSX.Element => {
-    const [emailSent, setEmailSent] = useState<boolean>(false);
-    type Inputs = {
-        name: string;
-        email: string;
-        message: string;
-    }
+    // const [emailSent, setEmailSent] = useState<boolean>(false);
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm<Inputs>()
 
-    const onSubmit = async (data: Inputs) => {
-        const emailStatus = await sendEmail(data);
-        setEmailSent(emailStatus);
-    }
+    // const {
+    //     register,
+    //     handleSubmit,
+    //     formState: { errors },
+    //   } = useForm<Inputs>()
+
+    // const onSubmit = async (data: Inputs) => {
+    //     const emailStatus = await sendEmail(data);
+    //     setEmailSent(emailStatus);
+    // }
 
     // { pattern: '[A-Z0-9+_.-]+@[A-Z0-9.-]+$' }
 
