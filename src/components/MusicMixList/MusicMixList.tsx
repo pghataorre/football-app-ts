@@ -49,6 +49,7 @@ const MusicMixList = (): JSX.Element => {
 				<Modal>
 					<div>
 						<h2>{mixTapeCollection?.[showPlayerIndex].mixTapeTitle}</h2>
+						<img src={mixTapeCollection?.[showPlayerIndex].mixTapeImageUrl} alt={mixTapeCollection?.[showPlayerIndex].mixTapeTitle} />
 						<SoundCloudWidget trackId={mixTapeCollection[showPlayerIndex].mixId} iframeTitle={mixTapeCollection[showPlayerIndex].mixTapeTitle} />
 					</div>
 				</Modal>

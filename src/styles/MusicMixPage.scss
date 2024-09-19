@@ -16,6 +16,12 @@
 
       h2 {
         font-size: $font-l;
+        margin-bottom: $spacing-l;
+      }
+
+      img {
+        width: 100%;
+        margin-bottom: $spacing-l;
       }
     }
 
@@ -92,6 +98,16 @@
     .mix-content-container {
       margin: $spacing-m auto 0;
       max-width: 90%;
+
+
+      .modal-container {
+        img {
+          width: 40%;
+          margin-bottom: $spacing-l;
+        }
+      }
+
+
 
     .mix-list {
       li {
