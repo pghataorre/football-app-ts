@@ -110,8 +110,9 @@
 
     .mix-list {
       li {
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
+        justify-content: flex-end;
 
         .mix-item-image {
           margin: 0 $spacing-m 0 0;
