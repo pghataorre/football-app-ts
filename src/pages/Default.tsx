@@ -6,6 +6,7 @@ import MusicMixList from '../components/MusicMixList/MusicMixList';
 import Modal from '../components/Modal/Modal';
 import { ModalContext } from '../context/ModalProvider/modalContext';
 import SocialMediaList from '../components/SocialMediaList/SocialMediaList';
+import GetInTouch from './GetInTouch';
 
  
 const Default = (): JSX.Element => {
@@ -35,6 +36,14 @@ const Default = (): JSX.Element => {
 					</>
 				)}
 			</div>
+			<div className='contact-page' id="contact-page">
+				{ content && (
+					<>
+						<GetInTouch />
+					</>
+				)}
+			</div>
+
 		</>
 	);
 };
