@@ -39,7 +39,15 @@ const getEntry = async () => {
     return {
       pageTitle: mixContentEntry.items[0].fields.mixPageTitle,
       pageDescription: mixContentEntry.items[0].fields.mixPageDescription,
-      mixTapeCollection: mixContentEntry.items[0].fields.mixEntries,
+      mixTapeCollection: mixContentEntry.includes.Entry.map((mixItems: any) =>  {
+
+        return {
+          mixId: mixItems.fields.mixId,
+          mixTapeTitle: mixItems.fields.mixTapeTitle,
+          mixUrl: mixItems.fields.mixUrl,
+          mixTapeImageUrl: mixItems.fields.mixtapeMediaItems[0].fields.file.url
+        }
+      })
     }
   }
 

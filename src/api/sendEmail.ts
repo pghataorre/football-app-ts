@@ -8,9 +8,6 @@ type TEmailBody = {
 
 const sendEmail = async (body: TEmailBody): Promise<boolean> => {
     try {
-
-
-        debugger;
         const res = await fetch(`${config.apiUrl}/email`, {
             method: 'POST',
             headers: {

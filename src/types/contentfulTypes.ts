@@ -52,29 +52,14 @@ export interface IMixCollection {
 export interface IMixPage {
   mixPageTitle: string;
   mixPageDescription: IMixDetailedContent;
-  mixEntries: IMixEntries[];
-}
-
-export interface IMixEntries {
-  fields: IMusicMixEntries[];
-  meta: {};
-  sys: {
-    id: string;
-  }
+  mixTapeCollection: IMusicMixEntries[];
 }
 
 export interface IMusicMixEntries {
-  fields: {
-    mixTapeTitle: string;
-    mixUrl: string;
-    mixtapeDetails: {
-      content: IMixDetailedContent[]
-    };
-    mixId: string;
-    mixtapeMediaItems: [];
-  }
-  meta: {};
-  sys: {}
+  mixId: string;
+  mixTapeTitle: string;
+  mixUrl: string;
+  mixTapeImageUrl: string;
 }
 
 export type IMixDetailedContent = [{
@@ -89,5 +74,5 @@ export type IMixDetailedContent = [{
 export interface ICleanedMixContent {
   pageTitle: string;
   pageDescription: Document;
-  mixTapeCollection: IMixEntries[];
+  mixTapeCollection: IMusicMixEntries[];
 }

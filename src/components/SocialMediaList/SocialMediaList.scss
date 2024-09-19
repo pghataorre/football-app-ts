@@ -13,11 +13,12 @@
     li {
       margin: 0 0 0 $spacing-m;
       filter: grayscale(100%);
+      transition: filter $transition-timing ease-in-out;
 
       img {
         display: inline-block;
-        width: $spacing-ml;
-        height: $spacing-ml; 
+        width: $spacing-m;
+        height: $spacing-m; 
       }
 
       &:hover {

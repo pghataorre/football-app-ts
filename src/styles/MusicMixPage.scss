@@ -7,6 +7,18 @@
 
   .mix-content-container {
 
+    .modal-container {
+      padding: $spacing-xxl $spacing-m $spacing-m;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: $font-l;
+      }
+    }
+
     .mix-list {
       margin: $spacing-xxl 0 0 0; 
       padding: 0 $spacing-s 0;

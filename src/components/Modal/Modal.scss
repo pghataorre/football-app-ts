@@ -1,19 +1,22 @@
 @import '../../styles/variables.scss'; 
 
 .modal-container {
+    box-sizing: border-box;
     position: fixed;
-    z-index: 15;
-    width: 320px;
-    height: 100px;
-    top: 25%;
-    left: 25%;
+    z-index: 35;
+    top: $spacing-m;
+    left: $spacing-m;
+    right: $spacing-m;
+    bottom: $spacing-m;
     background-color: $custom-black;
-
+    opacity: 0.95;
+    margin: $spacing-m;
+    border: 2px solid $custom-white;
 
     button {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: $spacing-m;
+        right: $spacing-m;
         background-color: transparent;
         border: none;
         padding: 0;
@@ -22,7 +25,8 @@
         height: 40px;
 
         svg {
-            fill: $custom-white;
+            fill: $link-color-selected;  
+            transition: fill $transition-timing ease-in-out;      
         }
 
         &:hover {
@@ -32,7 +36,7 @@
             margin: 0;
 
             svg {
-                fill: $link-color-selected;        
+                fill: $custom-white;      
             }
         }
     }
