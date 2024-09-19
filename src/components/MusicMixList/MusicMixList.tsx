@@ -31,7 +31,6 @@ const MusicMixList = (): JSX.Element => {
 		<div className='mix-content-container'>
 			<h1>{pageTitle}</h1>
 			<p dangerouslySetInnerHTML={{__html: pageDescription ? documentToHtmlString(pageDescription) : '<p></p>'}}></p>
-			
 			<ul className='mix-list'>
 				{
 					mixTapeCollection?.map((item, index) => (

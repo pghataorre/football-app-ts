@@ -8,7 +8,7 @@
   .mix-content-container {
 
     .modal-container {
-      padding: $spacing-xxl $spacing-m $spacing-m;
+      padding: $spacing-xxl $spacing-l $spacing-l;
       width: auto;
       display: flex;
       align-items: center;
@@ -20,7 +20,7 @@
       }
 
       img {
-        width: 100%;
+        width: 70%;
         margin-bottom: $spacing-l;
       }
     }
@@ -99,15 +99,14 @@
       margin: $spacing-m auto 0;
       max-width: 90%;
 
-
       .modal-container {
+        padding: $spacing-xxl $spacing-m $spacing-m;
+
         img {
-          width: 40%;
+          width: 30%;
           margin-bottom: $spacing-l;
         }
       }
-
-
 
     .mix-list {
       li {
