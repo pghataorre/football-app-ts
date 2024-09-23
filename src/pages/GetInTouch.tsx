@@ -31,7 +31,7 @@ const GetInTouch = (): JSX.Element => {
         setSentEmail(true);
     }
 
-    const checkTextCount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const checkTextCount = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const test = event.target.value
         setCharCount( test.length);
     }
@@ -58,7 +58,14 @@ const GetInTouch = (): JSX.Element => {
                     {errors.name && (<span className="email-error">Please enter your name</span>)}
                 </label>
                 <label htmlFor="email">
-                    <input id="email" className={errors.email && 'email-error-field'} placeholder="Your email" {...register('email', {pattern: {value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/}})} />
+                    <input id="email" className={errors.email && 'email-error-field'} placeholder="Your email" 
+                        {...register('email', 
+                            {  
+                                pattern: {
+                                    value : /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                    message: 'Please enter your email correctly'
+                            },
+                            } as  { pattern : { value: RegExp; message: string } })} />
                     {errors.email && (<span className="email-error">Please enter your email correctly</span>)}
                 </label>
                 <label htmlFor="message">
