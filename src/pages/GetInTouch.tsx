@@ -47,7 +47,7 @@ const GetInTouch = (): JSX.Element => {
             <h1>Get in touch</h1>
             {sentEmail ? (
                 <>
-                    <p>Thank you for sending your email,unfortunately your email could not be sent at this time, An error has occurred.</p>
+                    <p>Thank you for sending your email, <strong>unfortunately</strong> your email could not be sent at this time, An error has occurred.</p>
                     <button className="get-in-touch-form-submit" type="submit" onClick={sentAnother}>Try Again</button>
                 </>
             )
