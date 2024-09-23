@@ -11,13 +11,13 @@ const sendEmail = async (body: TEmailBody): Promise<boolean> => {
         const res = await fetch(`${config.apiUrl}/email`, {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json; charset=UTF-8',
+                "Content-type": "application/json",
+                "Accept": "*/*"
             },
             body: JSON.stringify(body),
         });
 
         if(!res.ok) {
-            throw new Error;
             return false;
         }
 
@@ -25,7 +25,7 @@ const sendEmail = async (body: TEmailBody): Promise<boolean> => {
 
     } catch(error) {
         console.log('error ==================== ', error);
-      return false;
+        return false;
     }
   }
   

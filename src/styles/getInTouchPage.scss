@@ -5,12 +5,18 @@
     margin: auto;
     background-color: $custom-black;
 
-    h1 {
+
+    h1, h2, p {
         color: $custom-white;
     }
 
     textarea {
         height: 200px;
+    }
+
+    .text-count{
+        margin-top: 0;
+        text-align: end;
     }
 
     .get-in-touch-form-submit {
@@ -20,12 +26,25 @@
         border: none;
         transition: background-color 0.3s;
         border: 2px solid $link-color-selected;
+        margin: 0 0 $spacing-m 0;
 
         &:hover {
             background-color: $custom-black;
             border: 2px solid $custom-white;        
         }
+
+        &:disabled {
+            opacity: 0.2;
+            border: none;
+
+            &:hover {
+                background-color: $link-color-selected; 
+                color: $custom-white;
+            }
+        }
     }
+
+
 }
 
 @media only screen and (min-width: $bp-mobile-max) {
