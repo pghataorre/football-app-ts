@@ -7,7 +7,7 @@ import config from "../config/config.mjs";
 type Inputs = {
     name: string;
     email: string;
-    message: string | RefObject<HTMLTextAreaElement>;
+    message: string;
 }
 
 const GetInTouch = (): JSX.Element => {
@@ -47,8 +47,8 @@ const GetInTouch = (): JSX.Element => {
             <h1>Get in touch</h1>
             {sentEmail ? (
                 <>
-                    <p>Thank you for sending your email, if would like to send another please get in touch</p>
-                    <button className="get-in-touch-form-submit" type="submit" onClick={sentAnother}>Send Another Email</button>
+                    <p>Thank you for sending your email,unfortunately your email could not be sent at this time, An error has occurred.</p>
+                    <button className="get-in-touch-form-submit" type="submit" onClick={sentAnother}>Try Again</button>
                 </>
             )
             : (
@@ -68,8 +68,7 @@ const GetInTouch = (): JSX.Element => {
                         maxLength={config.maxEmailFreeTextLength} 
                         className={errors.message && 'email-error-field'} 
                         placeholder="Please add your message" 
-                        {...register('message', {required: true})}
-                        onChange={(event) => checkTextCount(event)}
+                        {...register('message', {required: true})} onChange={(event) => checkTextCount(event)}
                     >
                             
                     </textarea>
