@@ -31,7 +31,7 @@ const GetInTouch = (): JSX.Element => {
         setSentEmail(true);
     }
 
-    const checkTextCount = (event) => {
+    const checkTextCount = (event: React.ChangeEvent<HTMLInputElement>) => {
         const test = event.target.value
         setCharCount( test.length);
     }
