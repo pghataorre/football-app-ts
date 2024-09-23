@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import sendEmail from "../api/sendEmail";
-import { RefObject, useState } from "react";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import config from "../config/config.mjs";
 
