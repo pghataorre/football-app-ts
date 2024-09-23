@@ -33,13 +33,14 @@ const GetInTouch = (): JSX.Element => {
 
     const checkTextCount = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const test = event.target.value
-        setCharCount( test.length);
+        setCharCount(test.length);
     }
 
     const sentAnother = () => {
         reset();
         setSentEmail(false);
         setValidatewCapcha(true);
+        setCharCount(0);
     }
 
     return(
