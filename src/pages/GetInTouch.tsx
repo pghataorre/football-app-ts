@@ -23,12 +23,21 @@ const GetInTouch = (): JSX.Element => {
       } = useForm<Inputs>({ defaultValues: { name: '', email: '', message: ''} });
 
     const onSubmit = async (data: Inputs) => {
-        await sendEmail({
+
+        debugger;
+
+
+        const isSent = await sendEmail({
             ...data,
-            email: data.email.toLowerCase()
+            email: data.email.toLowerCase(),
         });
 
-        setSentEmail(true);
+        debugger;
+
+        if(isSent) {
+            setSentEmail(true);
+        }
+
     }
 
     const checkTextCount = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
