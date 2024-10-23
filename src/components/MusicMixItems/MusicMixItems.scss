@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.mix-list {
+    li {
+        h2 {
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+
+        h2.show-mobile {
+            display: block;
+        }
+    }
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+    .mix-list {
+        li {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+
+
+            h2.show-mobile {
+                display: none;
+            }
+        }
+    }
+}

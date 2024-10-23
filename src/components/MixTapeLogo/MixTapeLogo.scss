@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.mix-list {
+    li {
+        .mix-item-image {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 $spacing-l $spacing-l 0;
+
+            img {
+                filter: grayscale(100);
+            }
+
+            .play-button {
+                position: absolute;
+                z-index: 10;
+                background: transparent;
+                border: 8px solid $custom-white;
+                border-radius: 50%;
+                width: 80%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.2;
+                transition: $transition-timing;
+    
+            }
+
+            &:hover {
+                img {
+                    filter: grayscale(0);
+                }
+
+                .play-button {
+                    opacity: 0.9;
+                    background: $custom-black;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+    .mix-list {
+        li {
+            .mix-item-image {
+                width: 400px;
+            }
+        }
+    }
+}

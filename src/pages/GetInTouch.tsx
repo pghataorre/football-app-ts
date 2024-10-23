@@ -23,16 +23,10 @@ const GetInTouch = (): JSX.Element => {
       } = useForm<Inputs>({ defaultValues: { name: '', email: '', message: ''} });
 
     const onSubmit = async (data: Inputs) => {
-
-        debugger;
-
-
         const isSent = await sendEmail({
             ...data,
             email: data.email.toLowerCase(),
         });
-
-        debugger;
 
         if(isSent) {
             setSentEmail(true);

@@ -1,4 +1,6 @@
-import PlayIcon from '../Icons/PlayIcon';
+import './MusicMixItems.scss';
+import MixTapeDetails from '../MixTapeDetails/MixTapeDetails';
+import MixTapeLogo from '../MixTapeLogo/MixTapeLogo';
 
 type TMusicListItem = {
 	mixItem: any; 
@@ -9,13 +11,9 @@ type TMusicListItem = {
 const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {
 	return (
 		<li>
-			<h2>{mixItem.mixTapeTitle}</h2> 
-			<div className='mix-item-image'>
-				<img src={mixItem.mixTapeImageUrl} alt={mixItem.mixTapeTitle} />
-				<button type="button" className='play-button' onClick={  () => playMix(itemIndex)  }>
-					<PlayIcon />
-				</button>
-			</div>
+			<h2 className="show-mobile">{mixItem.mixTapeTitle}</h2>
+			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} />
+			<MixTapeDetails mixItem={mixItem} />
 		</li>
 	)
 }

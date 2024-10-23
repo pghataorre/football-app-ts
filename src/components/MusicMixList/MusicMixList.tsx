@@ -1,3 +1,4 @@
+import './MusicMixList.scss';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { useContext, useState } from 'react';
 import { ContentfulContext } from '../../context/ContentfulProvider/contentfulContext';
