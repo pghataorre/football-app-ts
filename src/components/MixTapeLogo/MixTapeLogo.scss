@@ -28,6 +28,13 @@
                 opacity: 0.2;
                 transition: $transition-timing;
     
+                svg{
+                    fill: $custom-white;
+                    width: 80%;
+                    height: 80%;
+                }
+
+
             }
 
             &:hover {
@@ -38,6 +45,10 @@
                 .play-button {
                     opacity: 0.9;
                     background: $custom-black;
+
+                    svg{
+                        fill: $custom-white;
+                    }
                 }
             }
         }

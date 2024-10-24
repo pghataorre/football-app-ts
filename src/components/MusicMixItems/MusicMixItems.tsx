@@ -13,7 +13,7 @@ const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Eleme
 		<li>
 			<h2 className="show-mobile">{mixItem.mixTapeTitle}</h2>
 			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} />
-			<MixTapeDetails mixItem={mixItem} />
+			<MixTapeDetails mixItem={mixItem} itemIndex={itemIndex} playMix={playMix}/>
 		</li>
 	)
 }
