@@ -2,7 +2,7 @@ import './MixTapeDetails.scss'
 import ShareIcon from "../Icons/ShareIcon";
 import WhatsAppIcon from "../Icons/WhatsAppIcon";
 import FaceBookIcon from '../Icons/FaceBookIcon';
-// import InstagramIcon from '../Icons/InstagramIcon';
+import InstagramIcon from '../Icons/InstagramIcon';
 
 type TMixTapeItem = {
 	mixItem: any; 
@@ -26,8 +26,13 @@ const MixTapeDetails = ({mixItem}: TMixTapeItem): JSX.Element => {
                         </a>
                     </li>
                     <li>
-                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${mixItem.mixUrl}`} target="_blank" rel="noreferrer" >
+                        <a href={`fb://facewebmodal/f?https://www.facebook.com/sharer/sharer.php?u=${mixItem.mixUrl}`} target="_blank" rel="noreferrer" >
                             <FaceBookIcon />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="instagram://user?username=permjitghataorre" target="_blank" rel="noreferrer" >
+                            <InstagramIcon />
                         </a>
                     </li>
                 </ul>
