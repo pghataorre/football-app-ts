@@ -18,7 +18,11 @@ const getEntry = async () => {
 
   try {
     const defaultPage = await contentFulClient.getEntry('wbp1AL9SvovWWYCq6c92r');
-    const musicPageContent = await contentFulClient.getEntries({ content_type:'mixesCollection'});      
+    const musicPageContent = await contentFulClient.getEntries({
+        content_type:'mixesCollection', 
+        order: ['sys.createdAt']
+    });
+
     const socialMediaEntries = await contentFulClient.getEntries({content_type: 'socialMediaList'});
 
     return {musicPageContent, defaultPage, socialMediaEntries};
@@ -39,17 +43,27 @@ const getEntry = async () => {
     return {
       pageTitle: mixContentEntry.items[0].fields.mixPageTitle,
       pageDescription: mixContentEntry.items[0].fields.mixPageDescription,
-      mixTapeCollection: mixContentEntry.includes.Entry.map((mixItems: any) =>  {
+      mixTapeCollection: mixContentEntry.items[0].fields.mixEntries.map((mixItems: any, index: number) =>  {
 
         return {
           mixId: mixItems.fields.mixId,
           mixTapeTitle: mixItems.fields.mixTapeTitle,
           mixUrl: mixItems.fields.mixUrl,
-          mixTapeImageUrl: mixItems.fields.mixtapeMediaItems[0].fields.file.url
+          mixTapeImageUrl: getAssetImageUrl(mixContentEntry, mixItems)
         }
       })
     }
   }
+
+ 
+  const getAssetImageUrl = (mixContentEntry: any, mixItems: any) => {
+    const imagePath = mixContentEntry.includes.Asset.filter((assetItem: any) => {
+      return assetItem.sys.id === mixItems.fields.mixtapeMediaItems[0].sys.id
+    });
+    
+    return imagePath[0].fields.file.url;
+  }
+
 
   const cleanSocialMediaEntries = (socialMediaEntries: any): ISocialMediaCollection => {
       return { 
