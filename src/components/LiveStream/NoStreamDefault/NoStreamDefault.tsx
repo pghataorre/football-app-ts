@@ -8,9 +8,9 @@ const NoStreamDefault = () => {
     return (
         <>
             <PreLoaderVideo 
-                imagePath={liveStreamContent?.streamLogo || ''}
+                imagePath={liveStreamContent?.streamLogo}
                 showTimerFlag={streamDateDetails?.[0]?.showTimerFlag} 
-                videoPreloadUrl={liveStreamContent?.videoPreloadUrl || ''}                
+                videoPreloadUrl={liveStreamContent?.videoPreloadUrl}                
             />
             <div className="scroll-content" dangerouslySetInnerHTML={{__html: liveStreamContent?.defaultStreamingDescription  ? documentToHtmlString(liveStreamContent?.defaultStreamingDescription) : '<p></p>'}}></div>
         </>

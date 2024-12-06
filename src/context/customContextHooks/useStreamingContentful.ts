@@ -30,7 +30,7 @@ const cleanLiveStreamsEntry = (liveStreams: any): ILiveSession => {
     startDateTime: liveStreams.items[0].fields.startDateTime,
     endDateTime: liveStreams.items[0].fields.endDateTime,
     streamDescription: liveStreams.items[0].fields.streamDescription,
-    streamLogo: liveStreams.includes.Asset[0].fields.file.url,
+    streamLogo: liveStreams.items[0].fields.streamFlyer[0].fields.file.url,
     scheduledStream: liveStreams.items[0].fields.scheduledStream,
     defaultStreamingDescription: liveStreams.items[0].fields.defaultStreamingDescription,
     videoPreloadUrl: liveStreams.items[0].fields.videoPreloader.fields.file.url,

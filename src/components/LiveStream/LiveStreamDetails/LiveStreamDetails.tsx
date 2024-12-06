@@ -20,9 +20,9 @@ const LiveStreamDetails = () => {
                     <>
                         <StreamDateDetails streamDetails={streamDateDetails[1]}/>
                         <PreLoaderVideo 
-                            imagePath={liveStreamContent?.streamLogo || ''} 
+                            imagePath={liveStreamContent?.streamLogo} 
                             showTimerFlag={streamDateDetails[1].showTimerFlag}
-                            videoPreloadUrl={liveStreamContent?.videoPreloadUrl || ''}
+                            videoPreloadUrl={liveStreamContent?.videoPreloadUrl}
                         />
                     </>
                 )}

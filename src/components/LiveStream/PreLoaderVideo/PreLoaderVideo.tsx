@@ -1,12 +1,11 @@
 type TPreLoaderVideoParams = {
-  imagePath: string
+  imagePath: string | undefined;
   showTimerFlag: boolean;
-  videoPreloadUrl: string;
+  videoPreloadUrl: string | undefined;
 }
 
 const PreLoaderVideo = ({imagePath, showTimerFlag, videoPreloadUrl}: TPreLoaderVideoParams) => {
   const videoPath = showTimerFlag ? videoPreloadUrl : imagePath;
-
   return (
     <>
       <video loop autoPlay controls muted id="vid" poster={imagePath}>
