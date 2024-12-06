@@ -44,7 +44,6 @@ const MixTapeDetails = ({mixItem, itemIndex, playMix}: TMixTapeItem): JSX.Elemen
                 <PlayIconSecondary />
             </button>
         </div>
-
     </div>
     )
   }

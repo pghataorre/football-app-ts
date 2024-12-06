@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { ContentfulContext } from './contentfulContext';
 import { getEntry, cleanContentEntry, cleanMusicEntries, cleanSocialMediaEntries } from '../customContextHooks/useContentful';
-import { IContentEntry, ICleanedMixContent, ISocialMediaCollection  } from '../../types/contentfulTypes';
+import { IContentEntry, ICleanedMixContent, ISocialMediaCollection } from '../../types/contentfulTypes';
 
 const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  => {
 
   const [content, setContent] =  useState<IContentEntry>();
-  const [musicContent, setMusicContent] = useState<ICleanedMixContent>()
-  const [socialMedia, setSocialMedia] = useState<ISocialMediaCollection>()
+  const [musicContent, setMusicContent] = useState<ICleanedMixContent>();
+  const [socialMedia, setSocialMedia] = useState<ISocialMediaCollection>();
+
   const [hasError, setHasError] = useState<boolean>(false);
   
   useEffect(() => {
@@ -21,6 +22,7 @@ const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  =
         setContent(cleanedEntry);
         setMusicContent(cleanedMusicEntries);
         setSocialMedia(cleanedSocialMediaEntries);
+
         
       } catch(error) {
         setHasError(true);
@@ -38,3 +40,5 @@ const ContentfulProvider = ({children}: {children: JSX.Element}): JSX.Element  =
 };
 
 export default ContentfulProvider;
+
+export const useParentProvider = () => useContext(ContentfulContext);

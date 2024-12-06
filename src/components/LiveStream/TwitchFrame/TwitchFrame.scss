@@ -1,0 +1,17 @@
+@import '../../../styles/variables.scss'; 
+
+.twitch-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 56.25%;
+    position: relative;
+    width: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      border: none;
+    }
+}

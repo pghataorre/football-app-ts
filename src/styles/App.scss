@@ -2,6 +2,9 @@
 @import './Scrolls.scss';
 @import './DefaultPage.scss';
 @import './MusicMixPage.scss';
+@import './LiveSession.scss';
+@import './getInTouchPage.scss';
+@import './siteLoadingErrorPage.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -14,6 +17,7 @@ body,
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
+  background-color: $custom-black;
 }
 
 input, 
@@ -93,4 +97,3 @@ button {
 @import './FormComponents.scss';
 @import './Buttons.scss';
 @import './genericAppList.scss';
-@import './getInTouchPage.scss';

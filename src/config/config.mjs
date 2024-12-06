@@ -9,7 +9,8 @@ const config = {
 		hostUrl: 'https://cdn.contentful.com',
 	},
 	recapchaSiteKey: '6LdhxEwqAAAAANa2JCvVWIPxu2PeI9ogdjRdqEx8',
-	maxEmailFreeTextLength: 300
+	maxEmailFreeTextLength: 300,
+	preCountDownMins: 30
 };
 
 export default config;

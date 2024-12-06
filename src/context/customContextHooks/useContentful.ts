@@ -25,7 +25,9 @@ const getEntry = async () => {
 
     const socialMediaEntries = await contentFulClient.getEntries({content_type: 'socialMediaList'});
 
-    return {musicPageContent, defaultPage, socialMediaEntries};
+    const liveStreams = await contentFulClient.getEntries({content_type: 'liveStreams'});
+
+    return {musicPageContent, defaultPage, socialMediaEntries, liveStreams};
   } catch (errors){
     console.log('error occurred - contentful call --- ', errors);
   }
@@ -76,7 +78,5 @@ const getEntry = async () => {
       }),
     }
   }
-
-
 
 export {getEntry, cleanContentEntry, cleanMusicEntries, cleanSocialMediaEntries};

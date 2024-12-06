@@ -7,6 +7,25 @@ export interface IContext {
   socialMedia: ISocialMediaCollection | undefined;
 }
 
+export interface ILiveSession {
+  liveStreamTitle: string;
+  startDateTime: string;
+  endDateTime: string;
+  streamDescription: Document,
+  streamLogo: string;
+  scheduledStream: string;
+  defaultStreamingDescription: Document;
+  videoPreloadUrl: string;
+}
+
+export interface ILiveStreamData {
+  liveStreamContent: ILiveSession | undefined;
+  hasError: boolean;
+  streamDateDetails: TStreamDateDetails[];
+  isStreamInProgress: boolean;
+}
+
+
 export interface ISocialMediaCollection {
   socialMediaCollection: ISocialMedia[];
 }
@@ -75,4 +94,17 @@ export interface ICleanedMixContent {
   pageTitle: string;
   pageDescription: Document;
   mixTapeCollection: IMusicMixEntries[];
+}
+
+
+export type TStreamDateDetails = {
+  liveStreamTitle: string | undefined;
+  startDateTime: string;
+  showTimerFlag: boolean;
+  styleClass: string;
+  originalStartTime: string | undefined;
+};
+
+export interface IStreamDateDetails {
+  streamDetails: TStreamDateDetails;
 }

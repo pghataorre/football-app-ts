@@ -1,0 +1,24 @@
+.site-loading-error {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $custom-white;
+
+    .site-loading-container {
+        display: flex;
+        flex-direction:  column;
+
+        button {
+            background-color: $link-color-selected;
+            border: none;
+            color: $custom-white;
+            transition: $transition-timing;
+
+            &:hover {
+                background-color: $custom-white;
+                color: $custom-black;
+            }
+        }
+    }
+}

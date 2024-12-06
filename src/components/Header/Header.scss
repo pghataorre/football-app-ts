@@ -11,7 +11,7 @@
   ul.nav-icon {
     padding: 0;
     margin: 0;
-    cursor: poiner;
+    cursor: pointer;
 
     svg {
       width: $spacing-l;
@@ -31,18 +31,17 @@
     list-style: square;
     color: $link-color-selected;
     display: block;
-    transition: display 1.2s ease-in-out;
+    transition: display $transition-timing ease-in-out;
   }
 
   ul.nav-links {
     position: absolute;
-    top: 35px;
+    top: $spacing-mml;
     left: 0px;
     z-index: 40;
     display: none;
     padding: 0px;
     margin: $spacing-s 0;
-
   }
   
   ul.nav-links li {
@@ -50,17 +49,20 @@
     margin-left: 20px;
     padding: 0px 0px $spacing-m 0px;
     font-size: $font-m;
-    width: 300px;
+    width: 50vw;
 
   }
   
   .nav-links li a {
     text-decoration: none;
     color: $custom-white;
+    border-bottom: 0px solid $link-color-selected;
     transition: color $transition-timing ease-in-out;
+    transition: border-bottom $transition-timing ease-in-out;    
   }
   
   .nav-links li a:hover {
+    border-bottom: 2px solid $link-color-selected;
     color: $link-color-selected;
   }
 }
@@ -69,8 +71,7 @@
 @media only screen and (min-width: $bp-mobile-max) {
   .header-nav {
     ul.nav-icon {
-      padding: 0;
-      margin: 0;
+
 
       svg {
         width: $spacing-xl;

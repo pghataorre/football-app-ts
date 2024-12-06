@@ -1,0 +1,136 @@
+@mixin countdown {
+  font-size: $font-xxxl;
+  font-weight: $font-weight-xl;
+  color: $link-color-selected;
+  margin: $spacing-m;
+}
+
+@mixin streamStartDetails {
+  width: 80%;
+  border: 2px solid $custom-white;
+  padding: $spacing-s;
+  background-color: $custom-black;
+  margin: $spacing-l;
+  font-size: $font-xxl;
+  text-align: center;
+}
+
+
+.live-session {
+  background-color: $custom-black;
+  position: relative;
+  color: $custom-white;
+  border-top: 2px solid $custom-white;
+  padding: $spacing-l $spacing-m;
+  height: auto;
+
+  h1 {
+    color: $custom-white;
+    margin:  00 $spacing-l 0;
+    padding: 0 0 $spacing-m 0;
+    font-size: $font-l;
+    text-align: center;
+  }
+
+  .live-session-container {
+    .scroll-content {
+      margin-top: $spacing-l;
+      width: 100%;
+      text-align: left;
+      overflow-y: visible;
+      overflow: scroll;
+      height: 300px;
+      padding-right: $spacing-m;
+    }
+  }
+
+  .stream-date-details {
+    color: $link-color-selected;
+  }
+
+  .live-session-text {
+    margin: $spacing-l auto;    
+  }
+
+  .live-stream-video {
+    display: flex;
+    position: relative;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    border: 2px solid $custom-white;
+    justify-content: center;
+    align-items: center;
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    .live-stream-date-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      visibility: hidden;
+
+      .count-down {
+        @include countdown;
+      }
+    }
+
+    .starting-soon-label {
+      background-color: rgba(0, 0, 0, 1.0);
+    }
+  }
+
+  .live-session-container { 
+    .count-down {
+      @include countdown;
+      font-size: $font-l;
+    }
+
+
+    .live-stream-date-container-mobile {
+      @include streamStartDetails;
+      font-size: $font-m;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+  .live-session {
+    min-height: 100vh;
+    height: auto;
+    padding: $spacing-l $spacing-m;
+
+    .live-stream-date-container {
+      @include streamStartDetails; 
+    }
+
+    .live-stream-date-container.show-details {
+      visibility: visible;
+    }
+
+    .live-stream-date-container-mobile {
+      display: none;
+    }
+
+    .live-session-container {
+      margin: auto;
+      max-width: 90%;
+
+      .scroll-content {
+        overflow-y: hidden; 
+        height: auto;
+        padding-right: 0;
+      }
+
+      .live-session-text {
+        margin: $spacing-l auto;    
+      }
+    }
+  }
+}
