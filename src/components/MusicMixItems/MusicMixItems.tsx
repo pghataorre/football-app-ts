@@ -3,9 +3,15 @@ import MixTapeDetails from '../MixTapeDetails/MixTapeDetails';
 import MixTapeLogo from '../MixTapeLogo/MixTapeLogo';
 
 type TMusicListItem = {
-	mixItem: any; 
+	mixItem: TMixItem; 
 	itemIndex: number;
 	playMix: (playIndex: number) => void;
+}
+
+type TMixItem = {
+    mixId: string;
+    mixTapeTitle: string;
+    mixTapeImageUrl: string;
 }
 
 const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {

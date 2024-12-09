@@ -28,7 +28,7 @@
     color: $custom-white;
     margin:  00 $spacing-l 0;
     padding: 0 0 $spacing-m 0;
-    font-size: $font-l;
+    font-size: $font-xxl;
     text-align: center;
   }
 
@@ -61,6 +61,7 @@
     border: 2px solid $custom-white;
     justify-content: center;
     align-items: center;
+    margin-bottom: $spacing-l;
 
     video {
       width: 100%;

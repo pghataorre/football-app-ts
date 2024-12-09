@@ -5,6 +5,7 @@ import StreamDateDetails from "../StreamDateDetails/StreamDateDetails";
 import TwitchFrame from "../TwitchFrame/TwitchFrame";
 import { useContext } from "react";
 import { StreamStateContext } from "../../../context/StreamProvider/streamStateContext";
+import ShareMedia from "../../ShareMedia/ShareMedia";
 
 const LiveStreamDetails = () => {
     const {liveStreamContent, streamDateDetails, isStreamInProgress} = useContext(StreamStateContext);
@@ -27,6 +28,7 @@ const LiveStreamDetails = () => {
                     </>
                 )}
             </div>
+            <ShareMedia/>
             <div className="live-session-text">
                 <div className="scroll-content" dangerouslySetInnerHTML={{__html: liveStreamContent?.streamDescription ? documentToHtmlString(liveStreamContent?.streamDescription) : '<p></p>'}}></div>
             </div>

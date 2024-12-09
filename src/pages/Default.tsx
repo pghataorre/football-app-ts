@@ -6,9 +6,15 @@ import SocialMediaList from '../components/SocialMediaList/SocialMediaList';
 import GetInTouch from './GetInTouch';
 import MyMixes from './MyMixes';
 import LiveSession from './LiveSession';
+import linkToSection from '../components/Header/HeaderHelpers';
  
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
+	const params = window.location.pathname;
+
+	if(params === '/section/live-session') {
+		linkToSection(undefined,'live-session');
+	}
 
 	return (
 		<>

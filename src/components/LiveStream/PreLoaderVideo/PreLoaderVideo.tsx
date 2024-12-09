@@ -1,3 +1,5 @@
+import './PreLoaderVideo.scss';
+
 type TPreLoaderVideoParams = {
   imagePath: string | undefined;
   showTimerFlag: boolean;
@@ -5,7 +7,8 @@ type TPreLoaderVideoParams = {
 }
 
 const PreLoaderVideo = ({imagePath, showTimerFlag, videoPreloadUrl}: TPreLoaderVideoParams) => {
-  const videoPath = showTimerFlag ? videoPreloadUrl : imagePath;
+  const videoPreloadUrlWithHttp = `https://${videoPreloadUrl}`;
+  const videoPath = showTimerFlag ? videoPreloadUrlWithHttp : imagePath;
   return (
     <>
       <video loop autoPlay controls muted id="vid" poster={imagePath}>

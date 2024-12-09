@@ -108,3 +108,9 @@ export type TStreamDateDetails = {
 export interface IStreamDateDetails {
   streamDetails: TStreamDateDetails;
 }
+
+export type TMixItem = {
+  mixId: string;
+  mixTapeTitle: string;
+  mixTapeImageUrl: string;
+}
