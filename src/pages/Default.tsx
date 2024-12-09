@@ -10,9 +10,12 @@ import linkToSection from '../components/Header/HeaderHelpers';
  
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
-	const params = window.location.pathname;
 
-	if(params === '/section/live-session') {
+
+	debugger;
+	const params = window.location.search;
+
+	if(params === '?section=live-session') {
 		linkToSection(undefined,'live-session');
 	}
 
