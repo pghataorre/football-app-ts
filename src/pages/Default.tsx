@@ -7,14 +7,21 @@ import GetInTouch from './GetInTouch';
 import MyMixes from './MyMixes';
 import LiveSession from './LiveSession';
 import linkToSection from '../components/Header/HeaderHelpers';
+import { StreamStateContext } from '../context/StreamProvider/streamStateContext';
  
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
-	const params = window.location.search;
+	const { hasLoaded } = useContext(StreamStateContext);
 
-	if(params === '?section=live-session') {
-		linkToSection(undefined,'live-session');
+
+
+	if (hasLoaded) {
+		const params = window.location.search;
+		if (params === '?section=live-session') {
+			linkToSection(undefined ,'live-session');
+		}
 	}
+
 
 	return (
 		<>
@@ -47,6 +54,7 @@ const Default = (): JSX.Element => {
 					<button onClick={() => window.location.reload() }>Refresh and Retry</button>
 				</div>
 			</div>
+
 			)}
 		</>
 	);

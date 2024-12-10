@@ -23,6 +23,7 @@ export interface ILiveStreamData {
   hasError: boolean;
   streamDateDetails: TStreamDateDetails[];
   isStreamInProgress: boolean;
+  hasLoaded: boolean;
 }
 
 

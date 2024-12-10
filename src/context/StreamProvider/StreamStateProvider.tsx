@@ -9,6 +9,7 @@ const StreamStateProvider = ({children}: {children: JSX.Element}): JSX.Element  
   const [hasError, setHasError] = useState<boolean>(false);
   const [streamDateDetails, setStreamDateDetails] = useState<TStreamDateDetails[] | undefined>();
   const [isStreamInProgress, setIsStreamInProgress] = useState<boolean>(false);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
  
     useEffect(() => {
       (async () => {
@@ -16,6 +17,7 @@ const StreamStateProvider = ({children}: {children: JSX.Element}): JSX.Element  
             const originalContent = await getEntry();
             const liveStreamEntries  = cleanLiveStreamsEntry(originalContent?.liveStreams);
             setLiveStreamContent(liveStreamEntries);
+            setHasLoaded(true);
           } catch (error) {
             setHasError(true);
             console.log('error ======== ', error);
@@ -96,6 +98,7 @@ const StreamStateProvider = ({children}: {children: JSX.Element}): JSX.Element  
       hasError,
       streamDateDetails,
       isStreamInProgress,
+      hasLoaded
     } as ILiveStreamData;
 
     return (
