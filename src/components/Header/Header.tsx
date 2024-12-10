@@ -18,7 +18,7 @@ const Header = () => {
               <li onClick={ (event) => linkToSection(event, 'mixes-page') }>
                 <a href="mixes-page">Mixes</a>       
               </li>
-              <li onClick={ (event) => linkToSection(event, 'live-session') }>
+              <li onClick={ (event) => linkToSection(event, 'live-session-page') }>
                 <a href="live-session">Live Sessions</a>       
               </li>
               <li onClick={ (event) => linkToSection(event, 'contact-page') }>

@@ -15,8 +15,8 @@ const Default = (): JSX.Element => {
 
 	if (hasLoaded) {
 		const params = window.location.search;
-		if (params === '?section=live-session') {
-			linkToSection(undefined ,'live-session');
+		if (params === '?section=live-session-page') {
+			linkToSection(undefined ,'live-session-page');
 		}
 	}
 
@@ -37,7 +37,7 @@ const Default = (): JSX.Element => {
 				<div className="music-page" id="mixes-page">
 					{ content && (<><MyMixes /></>)}
 				</div>
-				<div className="live-session" id="live-session">
+				<div className="live-session" id="live-session-page">
 					<LiveSession />
 				</div>
 				<div className="contact-page" id="contact-page">
