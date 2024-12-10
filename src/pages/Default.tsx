@@ -1,19 +1,25 @@
 import RandomImage from '../components/RandomImage/RandomImage';
 import BoxedContent from '../components/BoxedContent/BoxedContent';
-import { useContext } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import { ContentfulContext } from '../context/ContentfulProvider/contentfulContext';
 import SocialMediaList from '../components/SocialMediaList/SocialMediaList';
 import GetInTouch from './GetInTouch';
 import MyMixes from './MyMixes';
 import LiveSession from './LiveSession';
 import linkToSection from '../components/Header/HeaderHelpers';
+import { StreamStateContext } from '../context/StreamProvider/streamStateContext';
  
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
-	const params = window.location.search;
-	if (params === '?section=live-session-page') {
-		linkToSection(undefined ,'live-session-page');
-	}
+	const { streamDateDetails } = useContext(StreamStateContext);
+
+	useLayoutEffect(() => {
+		const params = window.location.search;
+		if (params === '?section=live-session-page') {
+			linkToSection(undefined ,'live-session-page');
+		}
+
+	}, [streamDateDetails]);
 
 	return (
 		<>
