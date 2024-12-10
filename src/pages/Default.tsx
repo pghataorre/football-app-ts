@@ -13,15 +13,12 @@ const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
 	const { hasLoaded } = useContext(StreamStateContext);
 
-
-
 	if (hasLoaded) {
 		const params = window.location.search;
 		if (params === '?section=live-session') {
 			linkToSection(undefined ,'live-session');
 		}
 	}
-
 
 	return (
 		<>

@@ -10,7 +10,7 @@ type TShareMedia  = {
 
 
 const ShareMedia = ({mixUrl}: TShareMedia) => {
-    const liveSessionUrl = 'https://www.permy.co.uk/?section=live-session';
+    const liveSessionUrl = 'https://www.permy.co.uk?section=live-session';
     const mixItemUrl = mixUrl 
     ? mixUrl
     :  liveSessionUrl;
