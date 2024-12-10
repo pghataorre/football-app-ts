@@ -10,13 +10,13 @@ type TShareMedia  = {
 
 
 const ShareMedia = ({mixUrl}: TShareMedia) => {
-    const liveSessionUrl = 'https://www.permy.co.uk?section=live-session';
+    const liveSessionUrl = 'https://www.permy.co.uk/?section=live-session';
     const mixItemUrl = mixUrl 
     ? mixUrl
     :  liveSessionUrl;
 
     const whatsAppText = mixUrl 
-    ? encodeURI(`I want to share this music mix with you from ---  https://www.permy.co.uk ${mixItemUrl}`)
+    ? encodeURI(`I want to share this music mix with you from ---  https://www.permy.co.uk/${mixItemUrl}`)
     : encodeURI(`I want to share A Live Stream mix from --- ${liveSessionUrl}`);
 
     return (
