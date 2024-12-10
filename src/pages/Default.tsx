@@ -35,11 +35,11 @@ const Default = (): JSX.Element => {
 						</>
 					)}
 				</div>
-				<div className="music-page" id="mixes-page">
-					{ content && (<><MyMixes /></>)}
-				</div>
 				<div className="live-session" id="live-session-page">
 					<LiveSession />
+				</div>
+				<div className="music-page" id="mixes-page">
+					{ content && (<><MyMixes /></>)}
 				</div>
 				<div className="contact-page" id="contact-page">
 					{ content && (<><GetInTouch /></>)}
