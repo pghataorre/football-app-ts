@@ -7,17 +7,12 @@ import GetInTouch from './GetInTouch';
 import MyMixes from './MyMixes';
 import LiveSession from './LiveSession';
 import linkToSection from '../components/Header/HeaderHelpers';
-import { StreamStateContext } from '../context/StreamProvider/streamStateContext';
  
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
-	const { hasLoaded } = useContext(StreamStateContext);
-
-	if (hasLoaded) {
-		const params = window.location.search;
-		if (params === '?section=live-session-page') {
-			linkToSection(undefined ,'live-session-page');
-		}
+	const params = window.location.search;
+	if (params === '?section=live-session-page') {
+		linkToSection(undefined ,'live-session-page');
 	}
 
 	return (

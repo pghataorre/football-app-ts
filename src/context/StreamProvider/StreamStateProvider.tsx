@@ -97,8 +97,7 @@ const StreamStateProvider = ({children}: {children: JSX.Element}): JSX.Element  
       liveStreamContent,
       hasError,
       streamDateDetails,
-      isStreamInProgress,
-      hasLoaded
+      isStreamInProgress
     } as ILiveStreamData;
 
     return (
