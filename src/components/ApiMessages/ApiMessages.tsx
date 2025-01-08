@@ -1,12 +1,14 @@
+type TApiMessage = {
+  showMessage: boolean,  
+  cssClass: string, 
+  message: string;
+}
+
 const ApiMessage = ({
   showMessage,
   cssClass = 'success', 
   message = '',
-} : {
-  showMessage: boolean,  
-  cssClass: string, 
-  message: string;
-}) => {
+} : TApiMessage) => {
   const stateMessage = showMessage ? (<h3 className={cssClass}>{ message }</h3>) : (<></>)
   return stateMessage;
 }

@@ -1,8 +1,10 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { IContentEntry } from '../../types/contentfulTypes';
 
-const BoxedContent = ({contentEntry}: {contentEntry: IContentEntry}): JSX.Element => {
+const BoxedContent = ({contentEntry}: {contentEntry: IContentEntry | undefined}): JSX.Element => {
 	if (!contentEntry) return (<></>);
+
+	debugger;
 
 	const { 
 		pageTitle,

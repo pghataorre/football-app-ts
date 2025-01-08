@@ -36,21 +36,56 @@ export interface ISocialMedia {
   socialMediaIcon: string;
 }
 
-export  interface IContentEntry {
+export interface IContentEntry {
   pageTitle?: string;
-  backgroundImagesCollection: IImageCollection[] | [];
+  backgroundImagesCollection: IImageCollection[];
   description?: Document;
-  error?: boolean;
 }
 
 export interface IImageCollection {
-  fields: {
-    file: {
-      url: string;
+    metadata: {
+        tags: string[] | [];
+        concepts: string[] | [];
     },
-    fileName: string;
-    contentType: string;
-  }
+    sys: {
+        space: {
+            sys: {
+                type: string;
+                linkType: string;
+                id: string;
+            }
+        },
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        environment: {
+            sys: {
+                id: string;
+                type: string;
+                linkType: string;
+            }
+        },
+        publishedVersion: number;
+        revision: number;
+        locale: string;
+    },
+    fields: {
+        title: string;
+        description: string | undefined;
+        file: {
+            url: string;
+            details: {
+                size: number;
+                image: {
+                    width: number;
+                    height: number;
+                }
+            },
+            fileName: string;
+            contentType:  string;
+        }
+    }
 }
 
 export interface IMixCollection {
