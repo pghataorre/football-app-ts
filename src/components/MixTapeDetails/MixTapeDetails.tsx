@@ -1,9 +1,10 @@
 import './MixTapeDetails.scss'
 import PlayIconSecondary from '../Icons/PlayIconSecondary';
 import ShareMedia from '../ShareMedia/ShareMedia';
+import { IMixItem } from '../../types/contentfulTypes';
 
 type TMixTapeItem = {
-	mixItem: any;
+	mixItem: IMixItem;
     itemIndex: number;
     playMix: (playIndex: number) => void;
 }
@@ -16,7 +17,7 @@ const MixTapeDetails = ({mixItem, itemIndex, playMix}: TMixTapeItem): JSX.Elemen
         </div>
         <div className="social-media-share-container">
             <ShareMedia mixUrl={mixItem.mixUrl}/>
-            <button className="play-button-secondary" onClick={() => playMix(itemIndex)}>
+            <button className="play-button-secondary" data-testid="play-button" onClick={() => playMix(itemIndex)}>
                 <PlayIconSecondary />
             </button>
         </div>

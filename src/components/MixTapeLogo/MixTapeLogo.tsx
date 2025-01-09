@@ -1,8 +1,9 @@
 import './MixTapeLogo.scss';
 import PlayIcon from "../Icons/PlayIcon";
+import { IMixItem } from '../../types/contentfulTypes';
 
 type TMusicListItem = {
-	mixItem: any; 
+	mixItem: IMixItem; 
 	itemIndex: number;
 	playMix: (playIndex: number) => void;
 }

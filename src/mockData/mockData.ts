@@ -168,3 +168,10 @@ export const mockContentEntry = {
         nodeType: "document"
     }
 }
+
+export const singularMixItem = {
+    mixId: '407145420',
+    mixTapeTitle: "Test Mix Tape Title",
+    mixUrl: 'https://soundcloud.com/permjit-singh-ghataorre/90s_hip_hop',
+    mixTapeImageUrl: '//images/test/testImage.jpg'
+}

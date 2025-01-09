@@ -149,3 +149,10 @@ export type TMixItem = {
   mixTapeTitle: string;
   mixTapeImageUrl: string;
 }
+
+export interface IMixItem {
+  mixId: string;
+  mixTapeImageUrl: string;
+  mixTapeTitle: string;
+  mixUrl: string;
+}

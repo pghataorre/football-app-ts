@@ -12,6 +12,7 @@ type TMixItem = {
     mixId: string;
     mixTapeTitle: string;
     mixTapeImageUrl: string;
+	mixUrl: string;
 }
 
 const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {

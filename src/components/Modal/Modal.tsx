@@ -4,9 +4,8 @@ import { ModalContext } from '../../context/ModalProvider/modalContext';
 import { useContext } from 'react';
 
 type TModaProps = {
-    children?: undefined | string | JSX.Element | JSX.Element[];
-  }
-
+  children?: undefined | string | JSX.Element | JSX.Element[];
+}
 
 const Modal = ({children}: TModaProps) => {
   const {setModalToggle} = useContext(ModalContext);
