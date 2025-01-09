@@ -3,9 +3,7 @@ import { IContentEntry } from '../../types/contentfulTypes';
 
 const BoxedContent = ({contentEntry}: {contentEntry: IContentEntry | undefined}): JSX.Element => {
 	if (!contentEntry) return (<></>);
-
-	debugger;
-
+	
 	const { 
 		pageTitle,
 		description
