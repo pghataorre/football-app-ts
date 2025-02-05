@@ -7,18 +7,7 @@
     h2 {
       display: none;
     }
-
-    .default-back-image-container {
-      background: url('../../public/images/dj-xite-logo.png') no-repeat center center;
-      z-index: 2;
-      background-color: $custom-black;
-      background-size: 40%;
-      color: $custom-white;
-      filter: grayscale(100%);
-      height: 50vh;
-      animation: spin 9s ease-in-out;
-    }
-
+    
     @keyframes spin {  
       from {
         transform: rotate(0deg);
@@ -28,17 +17,6 @@
         transform: rotate(360deg);
         opacity: 1;
       }  
-    }
-
-    .back-image-container {
-      z-index: 2;
-      background-color: $custom-black;
-      background-position: top center;
-      background-size: cover;
-      color: $custom-white;
-      filter: grayscale(100%);
-      height: 50vh;
-      transition: background-image 7s ease-out;
     }
 
     .default-content {
@@ -79,16 +57,6 @@
 
 @media only screen and (min-width: $bp-mobile-max) {
   .default-page {
-    .default-back-image-container {
-      background: url('../../public/images/dj-xite-logo.png') no-repeat center center;
-      height: 100vh;
-    }
-
-    .back-image-container {
-      background-position: center center;
-      height: 100vh;
-    }
-
     h2 {
       display: block;
       position: absolute;

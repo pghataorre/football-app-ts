@@ -1,17 +1,14 @@
-import { ReactNode, useEffect, useState } from 'react'
-import { generateRandomImageIndex } from './generateRandomImageIndex';
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { IContentEntry } from '../../types/contentfulTypes';
-
+import './Randomimage.scss';
 type TBackgroundImage = {
 	backgroundImage: string | undefined;
-	backgroundSize?: string;
 }
 
 const RandomImage = ({
 	Children,
 	contentEntry, 
 	showBackImage = true,
-
 }: {
 	Children?: ReactNode,
 	contentEntry: IContentEntry, 
@@ -22,31 +19,50 @@ const RandomImage = ({
 		backgroundImagesCollection,
 	} = contentEntry;
 
-	const [backgroundImageStyle, setBackgroundImageStyle] = useState<TBackgroundImage>();
-	const [imageIndex, setImageIndex] = useState<number>();
+	const [backgroundImageStyle, setBackgroundImageStyle] = useState<TBackgroundImage | undefined>(undefined);
+	const [loader, setLoader] = useState(true);
+
+	const setBackgroundUrls = (imageUrls: string[]) => {
+		if (imageUrls.length > 0) {
+			setBackgroundImageStyle({backgroundImage : imageUrls.join(',' )});
+		}
+	}
+
+	const createBackgroundCSSUrls = useCallback((): string[] => {
+		return backgroundImagesCollection.map((item) => `url(${item.fields.file.url})`);
+	}, [backgroundImagesCollection])
+
+	const imageUrls = useMemo(() => {
+		const urlCollection =  createBackgroundCSSUrls();
+		urlCollection.unshift(`url('')`);
+		return urlCollection;
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	useEffect(() => {
 		const imageChanger = setInterval(() => {
-			setImageIndex(generateRandomImageIndex(backgroundImagesCollection.length));
-			setBackgroundImageStyle({
-				backgroundImage: `url(${imagePath})`});
-		}, 10000);	
+			setLoader(false);
 
-		const imagePath: string = backgroundImagesCollection[generateRandomImageIndex(backgroundImagesCollection.length)].fields.file.url;
+			if (imageUrls!.length !== 0) {
+				imageUrls.shift();
+				setBackgroundUrls(imageUrls);
+			} else {
+				const regeneratedUrls = createBackgroundCSSUrls();
+				setBackgroundUrls(regeneratedUrls);
+			}
+		}, 10000);
 
-		return () => clearInterval(imageChanger);
-	},[imageIndex, backgroundImagesCollection, backgroundImageStyle])
+		return () => {
+			clearInterval(imageChanger);
+		}
+		
+	}, [backgroundImageStyle, createBackgroundCSSUrls, imageUrls, loader])
 
 	return (
 		<>
-		{contentEntry && imageIndex === undefined ?
-			(<div className="default-back-image-container"></div>)
-			: (
-			<div className='back-image-container' style={ showBackImage ? backgroundImageStyle : {} }>
+			<div className={loader ? 'default-back-image-container' : 'back-image-container' } style={ showBackImage ? backgroundImageStyle : {} }>
 				{Children}
 			</div>
-			)
-		}
 		</>
 	);
 };

@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.default-back-image-container {
+    background: url('~/public/images/dj-xite-logo.png') no-repeat center center;
+    z-index: 2;
+    background-color: $custom-black;
+    background-size: 60%;
+    color: $custom-white;
+    filter: grayscale(100%);
+    height: 50vh;
+    // animation: spin 5s ease-in-out;
+    animation: fadeOut 10s ease-in-out;
+}
+
+@keyframes spin {  
+    from {
+    transform: rotate(0deg);
+    opacity: 0;
+    }  
+    to {
+    transform: rotate(360deg);
+    opacity: 1;
+    }  
+}
+
+@keyframes fadeOut {  
+    from {
+    opacity: 1;
+    }  
+    to {
+    opacity: 0;
+    }  
+}
+
+.back-image-container {
+    z-index: 2;
+    background-position: top center;
+    background-color: $custom-black;
+    background-size: cover;
+    color: $custom-white;
+    filter: grayscale(100%);
+    height: 50vh;
+    transition: background-image 9.5s ease-out;
+}
+
+@media only screen and (min-width: $bp-mobile-max) {
+    .default-back-image-container {
+      height: 100vh;
+    }
+
+    .back-image-container {
+      background-position: center center;
+      height: 100vh;
+    }
+}

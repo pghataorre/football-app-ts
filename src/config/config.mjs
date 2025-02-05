@@ -10,7 +10,8 @@ const config = {
 	},
 	recapchaSiteKey: '6LdhxEwqAAAAANa2JCvVWIPxu2PeI9ogdjRdqEx8',
 	maxEmailFreeTextLength: 300,
-	preCountDownMins: 30
+	preCountDownMins: 30,
+	backgroundSpinnerUrl: './public/images/dj-xite-logo.png',
 };
 
 export default config;
