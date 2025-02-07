@@ -1,9 +1,9 @@
-import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
+import { ReactNode,  useCallback,  useEffect,  useMemo,  useState } from 'react'
 import { IContentEntry } from '../../types/contentfulTypes';
 import './Randomimage.scss';
-type TBackgroundImage = {
-	backgroundImage: string | undefined;
-}
+import { shuffleArray } from './generateRandomImageIndex';
+import config from '../../config/config.mjs';
+
 
 const RandomImage = ({
 	Children,
@@ -19,50 +19,62 @@ const RandomImage = ({
 		backgroundImagesCollection,
 	} = contentEntry;
 
-	const [backgroundImageStyle, setBackgroundImageStyle] = useState<TBackgroundImage | undefined>(undefined);
 	const [loader, setLoader] = useState(true);
-
-	const setBackgroundUrls = (imageUrls: string[]) => {
-		if (imageUrls.length > 0) {
-			setBackgroundImageStyle({backgroundImage : imageUrls.join(',' )});
-		}
-	}
+	const [backImage, setBackImage] = useState<string[]>([]);
+	const loaderCSSUrl = `url('${config.backgroundSpinnerUrl}')`;
 
 	const createBackgroundCSSUrls = useCallback((): string[] => {
-		return backgroundImagesCollection.map((item) => `url(${item.fields.file.url})`);
-	}, [backgroundImagesCollection])
+		return backgroundImagesCollection.map((item) => `url('${item.fields.file.url}')`);
+	}, [backgroundImagesCollection]);
 
 	const imageUrls = useMemo(() => {
 		const urlCollection =  createBackgroundCSSUrls();
-		urlCollection.unshift(`url('')`);
+		urlCollection.unshift(loaderCSSUrl);
+		setBackImage(urlCollection);
 		return urlCollection;
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [createBackgroundCSSUrls, loaderCSSUrl]);
+
 
 	useEffect(() => {
 		const imageChanger = setInterval(() => {
-			setLoader(false);
-
-			if (imageUrls!.length !== 0) {
-				imageUrls.shift();
-				setBackgroundUrls(imageUrls);
-			} else {
-				const regeneratedUrls = createBackgroundCSSUrls();
-				setBackgroundUrls(regeneratedUrls);
+			if (loader) {
+				setBackImage(imageUrls);
 			}
+
+			setLoader(false);
+			setBackImage((prev) => {
+
+				if(prev.length === 1) {
+					if (imageUrls.includes(loaderCSSUrl)) {
+						const loaderImageIndex = imageUrls.indexOf(loaderCSSUrl);
+						imageUrls.splice(loaderImageIndex, 1);
+					}
+					return shuffleArray(imageUrls);
+				}
+
+				return prev.slice(1);
+			});
 		}, 10000);
 
 		return () => {
 			clearInterval(imageChanger);
 		}
 		
-	}, [backgroundImageStyle, createBackgroundCSSUrls, imageUrls, loader])
+	}, [loader, backImage, imageUrls, loaderCSSUrl])
 
 	return (
 		<>
-			<div className={loader ? 'default-back-image-container' : 'back-image-container' } style={ showBackImage ? backgroundImageStyle : {} }>
-				{Children}
-			</div>
+		{
+			loader ? (
+				<div className="default-back-image-container">
+				</div>
+			) : (
+				<div className="back-image-container" style={{backgroundImage: backImage.join(', ')}}>
+					{Children}
+				</div>
+			)
+
+		}
 		</>
 	);
 };
