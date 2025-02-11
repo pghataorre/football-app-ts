@@ -28,7 +28,7 @@ const Default = (): JSX.Element => {
 				<div className="default-page" id="default-page">
 					{ content && (
 						<>
-							<RandomImage contentEntry={content} showBackImage />
+							<RandomImage contentEntry={content} />
 							<BoxedContent contentEntry={content}/>
 							<SocialMediaList />
 							<h2>{content.pageTitle}</h2>

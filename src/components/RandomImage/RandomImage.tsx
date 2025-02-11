@@ -1,18 +1,14 @@
-import { ReactNode,  useCallback,  useEffect,  useMemo,  useState } from 'react'
+import { useCallback, useEffect,  useState } from 'react'
 import { IContentEntry } from '../../types/contentfulTypes';
 import './Randomimage.scss';
-import { shuffleArray } from './generateRandomImageIndex';
 import config from '../../config/config.mjs';
+import { shuffleArray } from './generateRandomImageIndex';
 
 
 const RandomImage = ({
-	Children,
 	contentEntry, 
-	showBackImage = true,
 }: {
-	Children?: ReactNode,
 	contentEntry: IContentEntry, 
-	showBackImage: boolean
 	}
 ): JSX.Element => {
 	const { 
@@ -21,46 +17,40 @@ const RandomImage = ({
 
 	const [loader, setLoader] = useState(true);
 	const [backImage, setBackImage] = useState<string[]>([]);
-	const loaderCSSUrl = `url('${config.backgroundSpinnerUrl}')`;
+	const [imageCount, setImageCount] = useState<number>(0);
+	const loaderCSSUrl: string = `url(${config.backgroundSpinnerUrl})`;
 
-	const createBackgroundCSSUrls = useCallback((): string[] => {
-		return backgroundImagesCollection.map((item) => `url('${item.fields.file.url}')`);
-	}, [backgroundImagesCollection]);
+	const createBackgroundCSSUrls = useCallback(() => {
+		const images = backgroundImagesCollection.map((item) => `url(http:${item.fields.file.url})`);
+		images.unshift(loaderCSSUrl);
+		setBackImage(images);
+		setImageCount(Number(images.length));
 
-	const imageUrls = useMemo(() => {
-		const urlCollection =  createBackgroundCSSUrls();
-		urlCollection.unshift(loaderCSSUrl);
-		setBackImage(urlCollection);
-		return urlCollection;
-	}, [createBackgroundCSSUrls, loaderCSSUrl]);
-
+	}, [backgroundImagesCollection, loaderCSSUrl]);
 
 	useEffect(() => {
 		const imageChanger = setInterval(() => {
 			if (loader) {
-				setBackImage(imageUrls);
+				createBackgroundCSSUrls();
+				setLoader(false);
 			}
 
-			setLoader(false);
-			setBackImage((prev) => {
-
-				if(prev.length === 1) {
-					if (imageUrls.includes(loaderCSSUrl)) {
-						const loaderImageIndex = imageUrls.indexOf(loaderCSSUrl);
-						imageUrls.splice(loaderImageIndex, 1);
-					}
-					return shuffleArray(imageUrls);
+			setImageCount((prev): number => {
+				if (prev === 1) {
+					setBackImage((prev) =>  shuffleArray(prev));
+					return backImage.length;
 				}
 
-				return prev.slice(1);
+				return prev - 1;
 			});
+
 		}, 10000);
 
 		return () => {
 			clearInterval(imageChanger);
 		}
 		
-	}, [loader, backImage, imageUrls, loaderCSSUrl])
+	}, [loader, backImage, loaderCSSUrl, imageCount, createBackgroundCSSUrls]);
 
 	return (
 		<>
@@ -68,12 +58,13 @@ const RandomImage = ({
 			loader ? (
 				<div className="default-back-image-container">
 				</div>
-			) : (
-				<div className="back-image-container" style={{backgroundImage: backImage.join(', ')}}>
-					{Children}
-				</div>
-			)
+			) : 
+			<>
+				<div className="back-image-container" style={{backgroundImage: backImage[imageCount]}}></div>
+			</>
 
+
+		
 		}
 		</>
 	);
