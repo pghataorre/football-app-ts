@@ -1,6 +1,6 @@
+import { useContext, useState } from 'react';
 import './MusicMixList.scss';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { useContext, useState } from 'react';
 import { ContentfulContext } from '../../context/ContentfulProvider/contentfulContext';
 import MusicListItem from '../MusicMixItems/MusicMixItems';
 import { ModalContext } from '../../context/ModalProvider/modalContext';
@@ -12,21 +12,22 @@ const MusicMixList = (): JSX.Element => {
 	const [showPlayerIndex, setShowPlayerIndex] = useState<number>(-1);
 	const {musicContent, hasError} = useContext(ContentfulContext);
 
-
-	if (! musicContent) return (<></>);
+	if (!musicContent) return (<></>);
 	if (hasError) return (<></>);
 
-	
 	const {
 		pageTitle,
 		pageDescription,
 		mixTapeCollection
 	} = musicContent;
-	
+
+
 	const playMix = (playIndex: number) => {
 		setShowPlayerIndex(playIndex);
 		setModalToggle(true);
 	} 
+
+
 
 	return (
 		<div className='mix-content-container'>

@@ -1,6 +1,8 @@
 import './MusicMixItems.scss';
 import MixTapeDetails from '../MixTapeDetails/MixTapeDetails';
-import MixTapeLogo from '../MixTapeLogo/MixTapeLogo';
+import MixTapeLogo from '../MixTapeLogo/MixTapeLogo'; 
+import addMixCount from '../../api/addMixCount';
+import { IMixCountPostBody } from '../../types/mixCountTypes'
 
 type TMusicListItem = {
 	mixItem: TMixItem; 
@@ -16,11 +18,23 @@ type TMixItem = {
 }
 
 const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {
+
+	const sendMixCount = async (mixBody: IMixCountPostBody) => {
+		try {
+			const response = await addMixCount(mixBody);
+			const res = await response.json();
+
+			return res;
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	return (
 		<li>
 			<h2 className="show-mobile">{mixItem.mixTapeTitle}</h2>
-			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} />
-			<MixTapeDetails mixItem={mixItem} itemIndex={itemIndex} playMix={playMix}/>
+			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount}/>
+			<MixTapeDetails mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount}/>
 		</li>
 	)
 }
