@@ -7,6 +7,8 @@
   left: $spacing-m;
   text-align: left;
   margin: auto;
+  width: 100%;
+  height: 100vh;
 
   ul.nav-icon {
     padding: 0;
@@ -30,30 +32,36 @@
   ul.nav-icon li:hover ul.nav-links {
     list-style: square;
     color: $link-color-selected;
-    display: block;
-    transition: display $transition-timing ease-in-out;
+    visibility: visible;
+    transition: visibility $transition-timing ease-in-out;
   }
 
   ul.nav-links {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-color: $custom-black;
     position: absolute;
-    top: $spacing-mml;
-    left: 0px;
+    top: 0;
+    left: 70px;
     z-index: 40;
-    display: none;
-    padding: 0px;
-    margin: $spacing-s 0;
+    visibility: hidden;
+    padding: $spacing-l $spacing-xl;
+    margin: -15px 0 0;
+    opacity: 0.90;
+    border-left: 2px solid $link-color-selected;
   }
   
   ul.nav-links li {
-    cursor: poiner;
-    margin-left: 20px;
-    padding: 0px 0px $spacing-m 0px;
-    font-size: $font-m;
-    width: 50vw;
-
+    cursor: pointer;
+    padding: 0;
+    font-size: $font-l;
   }
   
   .nav-links li a {
+    display: block;
+    padding: 0px $spacing-l $spacing-s 0px;
+    margin-bottom: $spacing-m;
     text-decoration: none;
     color: $custom-white;
     border-bottom: 0px solid $link-color-selected;
@@ -71,8 +79,6 @@
 @media only screen and (min-width: $bp-mobile-max) {
   .header-nav {
     ul.nav-icon {
-
-
       svg {
         width: $spacing-xl;
         height: $spacing-xl;
@@ -81,9 +87,18 @@
     }
 
     .nav-links {
-      display: none;
+      display: block;
       padding: 0px;
-      margin: $spacing-xl 0;
+      padding: $spacing-xl;
+    }
+
+    .nav-links li {
+      font-size: $font-xxxl;
+
+      a {
+        padding: 0px $spacing-m $spacing-s 0px;
+        margin-bottom: $spacing-s;
+      }
     }
   }
 }

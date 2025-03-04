@@ -11,11 +11,10 @@ type TMusicListItem = {
 }
 
 const MixTapeLogo = ({mixItem, itemIndex, playMix, sendMixCount}: TMusicListItem): JSX.Element => {
-     const handleClick = async () => {
+    const handleClick = async () => {
         playMix(itemIndex);
         await sendMixCount({mixId: mixItem.mixId, mixTitle: mixItem.mixTapeTitle})
-     }
-
+    }
 
     return(
         <div className='mix-item-image'>
