@@ -1,0 +1,114 @@
+@import '../../styles/variables.scss';
+
+.navStyle {
+    display: block;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background-color: $custom-black;
+    z-index: 40;
+    margin: 0;
+    opacity: 0.90;
+}
+
+.nav-links {
+    @extend .navStyle;
+    left: $nav-default-position;
+}
+
+.nav-links-active {
+    @extend .navStyle;
+    left: 0;  
+}
+
+.nav-links-active,
+.nav-links {
+    ul.nav {
+        display: flex;
+        flex-direction: column;
+        padding-top: $spacing-xxxl;
+        width: 85%;
+        list-style-type: square;
+    }
+
+    li {
+        cursor: pointer;
+        padding: 0;
+        font-size: $font-m;
+
+        a {
+            display: block;
+            padding: 0px $spacing-l $spacing-s 0px;
+            margin-bottom: $spacing-m;
+            text-decoration: none;
+            color: $custom-white;
+            border-bottom: 0px solid $link-color-selected;
+            transition: color $transition-timing ease-in-out;
+            transition: border-bottom $transition-timing ease-in-out; 
+            
+            &:hover {
+                border-bottom: 2px solid $link-color-selected;
+                color: $link-color-selected;
+            }
+        }
+    }
+
+    button.close-nav {
+        display: block;
+        position: absolute;
+        top: $spacing-sm;
+        right: $spacing-sm;
+        z-index: 50;
+        width: $spacing-m;
+        height: $spacing-m;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    
+        svg {
+            fill: $link-color-selected;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    
+        &:hover {
+            background-color: transparent;
+    
+            svg {
+                fill: $custom-white;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: $bp-mobile-max) {
+    .nav-links-active,
+    .nav-links {
+        li {
+            font-size: $font-l;
+
+            a {
+                padding: 0px $spacing-m $spacing-s 0px;
+                margin-bottom: $spacing-s;
+            }
+        }
+
+        .button.close-nav {
+            position: absolute;
+            top: $spacing-m;
+            right: $spacing-xl;
+            width: $spacing-l;
+            height: $spacing-l;
+    
+            svg {
+                width: $spacing-ml;
+                height: $spacing-ml;
+            }
+        }
+    }
+}
+

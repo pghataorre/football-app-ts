@@ -7,12 +7,12 @@ describe('Header Component', () => {
     const mockFucntion = jest.fn();
 
     it('Should show nav Items', () => {
-        render(<Navigation linkToSection={mockFucntion}  />);
+        render(<Navigation navActve={true} handleNavState={mockFucntion} />);
         expect(screen.getAllByRole('listitem')).toHaveLength(4);
     })
 
     it('Should be able to click a list item and fire a navigational function', () => {
-        render(<Navigation linkToSection={mockFucntion}  />);
+        render(<Navigation navActve={true} handleNavState={mockFucntion}   />);
     
         fireEvent.click (screen.getAllByRole('listitem')[0]);
         expect(mockFucntion).toHaveBeenCalledTimes(1);

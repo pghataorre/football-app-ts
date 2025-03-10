@@ -3,118 +3,44 @@
 .header-nav {
   position: fixed;
   z-index: 35;
-  top: $spacing-sm;
-  left: $spacing-m;
+  top: 0;
+  left: 0;
   text-align: left;
   margin: auto;
-  width: 100%;
-  height: 100vh;
 
   ul.nav-icon {
     padding: 0;
-    margin: 0;
+    margin: $spacing-sm;
     cursor: pointer;
 
-    svg {
+    li svg {
       width: $spacing-l;
       height: $spacing-l;
       fill: $link-color-selected;
       transition: fill $transition-timing ease-in-out;
-    }
 
-    &:hover {
-      svg {
-        fill: $custom-white;
+      &:hover {
+        svg {
+          fill: $custom-white;
+        }
       }
     }
   }
-
-
-  ul.nav-links {
-    box-sizing: border-box;
-    width: 70%;
-    height: 100vh;
-    background-color: $custom-black;
-    position: absolute;
-    top: 0;
-    left: -110%;
-    z-index: 40;
-    padding: $spacing-l $spacing-xl;
-    margin: -15px 0 0;
-    opacity: 0.90;
-    border-left: 2px solid $link-color-selected;
-    border-right: 2px solid $link-color-selected;
-  }
-
-  ul.nav-icon li:hover ul.nav-links {
-    list-style: square;
-    color: $link-color-selected;
-    visibility: visible;
-    top: 0;
-    left: 0;
-    animation: navAnimation $transition-timing ease-in-out;
-  }
-
-  @keyframes navAnimation {
-    from {left: -110%;} 
-    to{left: 0;} 
-  }
-  
-  ul.nav-links li {
-    cursor: pointer;
-    padding: 0;
-    font-size: $font-m;
-  }
-  
-  .nav-links li a {
-    display: block;
-    padding: 0px $spacing-l $spacing-s 0px;
-    margin-bottom: $spacing-m;
-    text-decoration: none;
-    color: $custom-white;
-    border-bottom: 0px solid $link-color-selected;
-    transition: color $transition-timing ease-in-out;
-    transition: border-bottom $transition-timing ease-in-out;    
-  }
-  
-  .nav-links li a:hover {
-    border-bottom: 2px solid $link-color-selected;
-    color: $link-color-selected;
-  }
-
-
 }
 
-.nav-links li a:visited ul.nav-links {
-  visibility: hidden;
+@keyframes navAnimation {
+  from {left: $nav-default-position} 
+  to{left: 0;} 
 }
-
 
 @media only screen and (min-width: $bp-mobile-max) {
   .header-nav {
     ul.nav-icon {
-      svg {
+      li svg {
         width: $spacing-xl;
         height: $spacing-xl;
         fill: $link-color-selected;
       }
     }
-
-    ul.nav-links {
-      display: block;
-      padding: 0px;
-      padding: $spacing-xl;
-      width: 30%;
-    }
-
-    ul.nav-links li {
-      font-size: $font-l;
-
-      a {
-        padding: 0px $spacing-m $spacing-s 0px;
-        margin-bottom: $spacing-s;
-      }
-    }
   }
 }
-
