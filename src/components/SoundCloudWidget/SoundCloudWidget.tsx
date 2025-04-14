@@ -13,7 +13,7 @@ const SoundCloudWidget = ({trackId, iframeTitle}: TSounCloudProps) => {
             scrolling="no"
             frameBorder="no"
             allow="autoplay"
-            src={`https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/${trackId}`}>    
+            src={`https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/${trackId}&auto_play=true&show_artwork=false`}>    
         </iframe>
     </div>
   );
