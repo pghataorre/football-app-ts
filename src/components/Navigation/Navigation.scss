@@ -16,11 +16,17 @@
 .nav-links {
     @extend .navStyle;
     left: $nav-default-position;
+    animation: closeAnimation $transition-timing;  
+    animation-timing-function:ease-in-out;
+    will-change: animation;
 }
 
 .nav-links-active {
     @extend .navStyle;
-    left: 0;  
+    left: 0;
+    animation: navAnimation $transition-timing;   
+    animation-timing-function:ease-in-out; 
+    will-change:  animation;
 }
 
 .nav-links-active,
@@ -112,3 +118,12 @@
     }
 }
 
+@keyframes navAnimation {
+    from {left: $nav-default-position} 
+    to{left: 0;} 
+}
+
+@keyframes closeAnimation {
+    from {left: 0} 
+    to{left: $nav-default-position} 
+}

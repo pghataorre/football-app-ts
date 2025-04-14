@@ -2,13 +2,12 @@ import CloseIcon from "../Icons/CloseIcon";
 import './Navigation.scss';
 
 type TNavigation = {
-    navActve: boolean;
     handleNavState: (event: React.MouseEvent<Element, MouseEvent> | undefined, pageName: string) => void;
 }
 
-const Navigation = ({handleNavState, navActve}: TNavigation) => {
+const Navigation = ({handleNavState}: TNavigation) => {
     return (
-        <div className={`${ navActve ? 'nav-links-active' : 'nav-links'}`}>
+        <>
             <button className="close-nav" onClick={(event) => handleNavState(event, '')}>
                 <CloseIcon />
             </button>
@@ -26,7 +25,7 @@ const Navigation = ({handleNavState, navActve}: TNavigation) => {
                     <a href="#contact-page">Get in touch</a>       
                 </li>
             </ul>
-        </div>
+        </>
     )
 }
 

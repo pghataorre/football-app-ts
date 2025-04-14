@@ -1,30 +1,45 @@
 import './Header.scss';
+import '../Navigation/Navigation.scss'
 import linkToSection from './HeaderHelpers';
 import NavIcon from '../Icons/NavIcon';
+import { useEffect, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
-import { useState } from 'react';
 
 const Header = () => {
   const [navActve, setNavActive] = useState<boolean>(false);
+  let timeoutId: null | number = null;
 
   const handleNavState = (event?: React.MouseEvent<Element, MouseEvent>, pageName?: string | undefined) => {
+    event?.stopPropagation();
 
-    setNavActive(!navActve);
+    if (timeoutId === null) {
+      setTimeout(() => {
+        setNavActive(!navActve);
+        timeoutId = null;
+      }, 150);
+    }
+
     if (pageName) {
       linkToSection(event, pageName);
     }
 
   } 
 
+
+  useEffect(() => {
+  },[])
+
   return (
     <div className="header-nav">
       <nav>
         <ul className="nav-icon">
           <li>
-            <div onMouseOver={(event) => handleNavState(event)}>
+            <button className="nav-icon-button" onMouseOver={(event) => handleNavState(event)}>
               <NavIcon />
+            </button>
+            <div className={`${ navActve ? 'nav-links-active' : 'nav-links'}`}>
+              <Navigation handleNavState={handleNavState} />
             </div>
-            <Navigation navActve={navActve} handleNavState={handleNavState}/>
           </li>
         </ul>
       </nav>
