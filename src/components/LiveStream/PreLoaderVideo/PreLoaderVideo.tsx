@@ -13,7 +13,7 @@ const PreLoaderVideo = ({imagePath, showTimerFlag, videoPreloadUrl}: TPreLoaderV
 
   return (
     <>
-      <video loop autoPlay controls muted id="vid">
+      <video loop autoPlay controls muted id="vid" poster={imagePath}>
         <source src={videoPath} type="video/mp4" />
         <p>Your browser does not support the video tag.</p>
       </video>
