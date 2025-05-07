@@ -12,6 +12,7 @@ const config = {
 	maxEmailFreeTextLength: 300,
 	preCountDownMins: 30,
 	backgroundSpinnerUrl: './public/images/dj-xite-logo.png',
+	defaultVideo: '/video/permy.mp4'
 };
 
 export default config;

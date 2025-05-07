@@ -1,4 +1,5 @@
 import './PreLoaderVideo.scss';
+import config from '../../../config/config.mjs';
 
 type TPreLoaderVideoParams = {
   imagePath: string | undefined;
@@ -8,10 +9,11 @@ type TPreLoaderVideoParams = {
 
 const PreLoaderVideo = ({imagePath, showTimerFlag, videoPreloadUrl}: TPreLoaderVideoParams) => {
   const videoPreloadUrlWithHttp = `https://${videoPreloadUrl}`;
-  const videoPath = showTimerFlag ? videoPreloadUrlWithHttp : imagePath;
+  const videoPath = showTimerFlag ? videoPreloadUrlWithHttp : config.defaultVideo;
+
   return (
     <>
-      <video loop autoPlay controls muted id="vid" poster={imagePath}>
+      <video loop autoPlay controls muted id="vid">
         <source src={videoPath} type="video/mp4" />
         <p>Your browser does not support the video tag.</p>
       </video>
